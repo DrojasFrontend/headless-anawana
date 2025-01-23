@@ -85,13 +85,7 @@ export default function BlogPage(props) {
 	if (props.loading || postsLoading) {
 		return (
 			<div className="loading">
-				<Image
-					src={LogoGreen}
-					alt="Logo casa selvaggio"
-					width={120}
-					height={53}
-					title="logo Forestia cocina local"
-				/>
+				Cargando.....
 			</div>
 		);
 	}
