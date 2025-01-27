@@ -1,1 +1,0 @@
-export {BannerTextCta} from "./BannerTextCta"

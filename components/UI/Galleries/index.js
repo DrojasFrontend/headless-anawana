@@ -1,1 +1,0 @@
-import { Gallery } from "./Gallery"

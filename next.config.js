@@ -19,7 +19,7 @@ module.exports = withFaust({
     return [
       {
         source: '/wp-content/:path*',
-        destination: 'https://wordpress-1203663-4959517.cloudwaysapps.com/wp-content/:path*',
+        destination: 'https://anawanapremiumhomes.com/wp-content/:path*',
       },
     ]
   },

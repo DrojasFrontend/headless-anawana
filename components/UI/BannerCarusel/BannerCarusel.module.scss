@@ -1,0 +1,22 @@
+@import "styles/breakpoints";
+@import "styles/mixin";
+
+.bg {
+  background-image: url(/img/background-patern.png);
+}
+
+.icon {
+  text-align: center;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem(100);
+    height: rem(100);
+    border: 1px solid #dd8b61;
+    border-radius: rem(100);
+    transform: translate(-50%, -50%);
+  }
+}

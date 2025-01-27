@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin/
 Allow: /
-Sitemap: https://www.forestiacocinalocal.com/sitemap.xml
+Sitemap: anawanapremiumhomes.com/sitemap.xml

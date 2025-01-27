@@ -1,0 +1,55 @@
+$font-family-base: "Raleway", sans-serif;
+$font-family-secondary: 'Cormorant', serif;
+$font-family-poppins: 'Poppins', serif;
+
+$h1-font-size: 4rem;
+$h2-font-size: 3rem;
+$h3-font-size: 2rem;
+$h4-font-size: 1.8rem;
+$h5-font-size: 1.6rem;
+$h6-font-size: 1.4rem;
+
+$font-sizes: (
+	1: $h1-font-size,
+	2: $h2-font-size,
+	3: $h3-font-size,
+	4: $h4-font-size,
+	5: $h5-font-size,
+	6: $h6-font-size,
+	p: 1rem,
+	medium: 1.25rem,
+);
+
+$primary: #22376b;
+$theme-colors: (
+	"primary": $primary,
+	"secondary": #dd8b61,
+	"gray": #5d5d5d,
+	"gray-100": #ECEBEB,
+	"white-100": #fafafa,
+	"black-100": #19130b,
+);
+
+$spacer: 1rem;
+$spacers: (
+	0: 0,
+	1: $spacer * 1,
+	2: $spacer * 2,
+	3: $spacer * 3,
+	4: $spacer * 4,
+	5: $spacer * 5,
+	10: $spacer * 10,
+);
+
+$negative-spacers: (
+  n1: -$spacer * 1,
+  n2: -$spacer * 2,
+  n3: -$spacer * 3,
+  n4: -$spacer * 4,
+  n5: -$spacer * 5,
+  n10: -$spacer * 10
+);
+
+$spacers: map-merge($spacers, $negative-spacers);
+
+@import "~bootstrap/scss/bootstrap";
