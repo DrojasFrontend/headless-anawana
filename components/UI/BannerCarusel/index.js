@@ -1,1 +1,1 @@
-export { default as BannerCarusel } from './Items';
+export { default as BannerCarusel } from './BannerCarusel';

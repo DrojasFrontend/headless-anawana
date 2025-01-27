@@ -1,5 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
+import * as MENUS from "../constants/menus";
 
+import Header from "../components/Layout/Header/Header";
 import Carusel from "../components/UI/Carusel/Carusel";
 import CardsCarusel from "../components/UI/CardsCarusel/CardsCarusel";
 import BannerCarusel from "../components/UI/BannerCarusel/BannerCarusel";
@@ -9,6 +11,15 @@ export default function Component(props) {
 	const { data } = useQuery(GET_PAGE, {
 		variables: Component.variables(),
 	});
+
+	const { data: menuData } = useQuery(GET_MENUS, {
+		variables: {
+			headerLocation: MENUS.PRIMARY_LOCATION,
+			menuHeaderLocation: MENUS.HEADER_LOCATION,
+		},
+	});
+
+	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader?.logo;
 
 	const mostrarCarusel = data?.page?.paginaInicio?.mostrar;
 	const mostrarGaleria = data?.page?.paginaInicio?.mostrarGaleria;
@@ -22,6 +33,7 @@ export default function Component(props) {
 
 	return (
 		<div>
+			<Header data={menuData} logo={logo} />
 			{mostrarCarusel && <Carusel data={dataSlide} />}
 			{mostrarGaleria && <CardsCarusel data={dataGaleria} />}
 			{mostrarGaleriaGrande && <BannerCarusel data={dataGaleriaGrande} />}
@@ -32,6 +44,20 @@ export default function Component(props) {
 
 const GET_PAGE = gql`
 	query GetPage($id: ID!) {
+		themeGeneralSettings {
+			headerFooter {
+				grupoHeader {
+					logo {
+						altText
+						mediaItemUrl
+						mediaDetails {
+							width
+							height
+						}
+					}
+				}
+			}
+		}
 		page(id: $id, idType: DATABASE_ID) {
 			paginaInicio {
 				mostrar
@@ -126,6 +152,32 @@ const GET_PAGE = gql`
 						}
 					}
 				}
+			}
+		}
+	}
+`;
+
+const GET_MENUS = gql`
+	query GetMenus(
+		$headerLocation: MenuLocationEnum
+		$menuHeaderLocation: MenuLocationEnum
+	) {
+		headerMenuItems: menuItems(where: { location: $headerLocation }) {
+			nodes {
+				id
+				path
+				label
+				target
+				cssClasses
+			}
+		}
+		menuHeaderMenuItems: menuItems(where: { location: $menuHeaderLocation }) {
+			nodes {
+				id
+				path
+				label
+				target
+				cssClasses
 			}
 		}
 	}

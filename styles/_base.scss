@@ -106,6 +106,17 @@ a {
 	color: inherit;
 }
 
+.header {
+	transition: background .4s ease;
+  &-scrolled {
+    background-color: rgba(0, 0, 0, 0.30);
+  }
+
+	a {
+		letter-spacing: 2px;
+	}
+}
+
 .font {
 	&-secondary {
 		font-family: $font-family-secondary;
