@@ -5,9 +5,8 @@ import styles from "./TextImageOne.module.scss";
 let cx = classNames.bind(styles);
 
 export default function TextImageOne({ data }) {
-	console.log(data);
 	return (
-		<section className="section section bg-white-100 py-4 py-lg-10">
+		<section className="section sectionTextImageTwoHorizontal section bg-white-100 py-4 py-lg-5">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-4 mb-3 mb-lg-0">

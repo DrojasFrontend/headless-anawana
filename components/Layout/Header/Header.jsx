@@ -1,6 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import LanguageSwitcher from "../../LanguageSwitcher/LanguageSwitcher";
+import IconMenu from "../../SVG/IconMenu";
 
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
@@ -29,12 +32,13 @@ export default function Header({ data, logo }) {
 				<nav className="row">
 					<div className="col-lg-2">
 						<Link href="/">
-							<a className="d-flex justify-content-center align-items-center h-100">
+							<a className="d-flex justify-content-center align-items-center h-100 position-relative">
 								<Image
 									src={logo?.mediaItemUrl}
 									alt={logo?.mediaItemUrl?.altText}
-									width={logo?.mediaDetails?.width}
-									height={logo?.mediaDetails?.height}
+									width={250}
+									height={100}
+									objectFit="contain"
 								/>
 							</a>
 						</Link>
@@ -42,11 +46,13 @@ export default function Header({ data, logo }) {
 					<div className="col-lg-8">
 						<ul className="d-flex justify-content-lg-around align-middle w-100 h-100">
 							{data?.headerMenuItems.nodes?.map((menuItem, index) => {
-								console.log("Classes:", menuItem.cssClasses); // Debug
+								{
+									/* console.log("Classes:", menuItem.cssClasses); // Debug */
+								}
 								return (
 									<li
 										key={index}
-										className={`d-flex justify-content-lg-around align-middle ${menuItem.cssClasses?.join(
+										className={`d-flex justify-content-lg-center align-content-center ${menuItem.cssClasses?.join(
 											" "
 										)}`}
 									>
@@ -78,11 +84,12 @@ export default function Header({ data, logo }) {
 					</div>
 
 					<div className="col-lg-2">
-						<Link href="#">
-							<a className="d-flex justify-content-end align-items-center h-100 text-white">
-								En
-							</a>
-						</Link>
+						<div className="d-none d-xl-flex justify-content-end align-items-center h-100">
+							<LanguageSwitcher />
+						</div>
+						<button className="d-xl-none d-flex justify-content-end align-items-center h-100 border-0 bg-transparent">
+							<IconMenu />
+						</button>
 					</div>
 				</nav>
 			</div>

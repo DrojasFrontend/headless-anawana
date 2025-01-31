@@ -15,10 +15,10 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
 export default function CardsCarusel({ data }) {
 	return (
-		<section className="section bg-white-100 py-4 py-lg-10">
+		<section className="section bg-white-100 py-4 py-lg-5">
 			<div className="container">
 				<div className="row">
-					<div className="col-lg-9 m-auto text-center text-black-100 mb-3">
+					<div className="col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
 							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
 								{data?.titulo}
@@ -26,7 +26,7 @@ export default function CardsCarusel({ data }) {
 						)}
 						{data?.descripcion && (
 							<div className="col-lg-10 m-auto">
-								<p className="text-black-100 fs-p fw-light">
+								<p className="text-gray fs-p">
 									{data?.descripcion}
 								</p>
 							</div>
@@ -71,10 +71,10 @@ export default function CardsCarusel({ data }) {
 						))}
 					</Swiper>
 					<div className="swiper-button-prev">
-						<Image src={slidePrevNext} alt="Slide 1" width={53} height={14} />
+						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
 					</div>
 					<div className="swiper-button-next">
-						<Image src={slidePrevNext} alt="Slide 1" width={53} height={14} />
+						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
 					</div>
 				</div>
 			</div>

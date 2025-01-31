@@ -16,7 +16,7 @@ import "swiper/css/effect-fade";
 export default function BlogCarusel({ data, grupoCarusel }) {
 	console.log(grupoCarusel);
 	return (
-		<section className="section bg-white-100 py-4 py-lg-10">
+		<section className="section bg-white-100 py-4 py-lg-5">
 			<div className="px-1">
 				<div className="row">
 					<div className="col-xl-3 mb-3">
@@ -30,12 +30,12 @@ export default function BlogCarusel({ data, grupoCarusel }) {
 							<p className="text-gray mb-3">{grupoCarusel.descripcion}</p>
 						)}
 						
-						<div className="col-4 position-relative m-auto">
+						<div className="col-1 position-relative m-auto">
 							<div className="swiper-button-prev">
 								<Image
 									src={slidePrevNext}
 									alt="Slide 1"
-									width={53}
+									width={18}
 									height={14}
 								/>
 							</div>
@@ -43,7 +43,7 @@ export default function BlogCarusel({ data, grupoCarusel }) {
 								<Image
 									src={slidePrevNext}
 									alt="Slide 1"
-									width={53}
+									width={18}
 									height={14}
 								/>
 							</div>
@@ -55,8 +55,11 @@ export default function BlogCarusel({ data, grupoCarusel }) {
 							spaceBetween={18}
 							slidesPerView={1}
 							breakpoints={{
-								992: {
+								680: {
 									slidesPerView: 2,
+								},
+								992: {
+									slidesPerView: 3,
 								},
 								1200: {
 									slidesPerView: 3,
@@ -76,13 +79,12 @@ export default function BlogCarusel({ data, grupoCarusel }) {
 						>
 							{data?.posts?.nodes?.map((post, index) => (
 								<SwiperSlide key={index}>
-									<div className={cx(["slide", "position-relative"])}>
+									<div className={cx(["slide", "position-relative text-center"])}>
 										<Image
 											src={post?.featuredImage?.node?.sourceUrl}
 											alt={post?.title}
-											width={post?.featuredImage?.node?.width}
-											height={post?.featuredImage?.node?.height}
-											layout="fill"
+											width={500}
+											height={600}
 											objectFit="cover"
 										/>
 									</div>

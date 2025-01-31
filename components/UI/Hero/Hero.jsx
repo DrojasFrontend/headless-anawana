@@ -9,19 +9,10 @@ import banner from "/public/img/slide-background-1.jpg";
 export default function Hero({ data }) {
 	return (
 		<section className={cx(["bg", "position-relative"])}>
-			<Image
-				src={banner}
-				alt="Hero"
-				width={1920}
-				height={600}
-				layout="fill"
-				objectFit="cover"
-			/>
+			
 			<Image
 				src={data?.imagen?.mediaItemUrl}
 				alt={data?.imagen?.altText}
-				width={data?.imagen?.mediaDetails?.width}
-				height={data?.imagen?.mediaDetails?.height}
 				layout="fill"
 				objectFit="cover"
 			/>

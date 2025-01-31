@@ -5,9 +5,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import { FaustProvider } from "@faustwp/core";
 import "@faustwp/core/dist/css/toolbar.css";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 import "../styles/global.scss";
 import Script from "next/script";
+
+import { LanguageProvider } from "../context/LanguageContext";
 
 import { useEffect } from "react";
 import TagManager from "react-gtm-module";
@@ -16,7 +18,7 @@ export default function MyApp({ Component, pageProps }) {
 	const router = useRouter();
 
 	useEffect(() => {
-		import('bootstrap/dist/js/bootstrap');
+		import("bootstrap/dist/js/bootstrap");
 		const gtmId = process.env.NEXT_PUBLIC_GTM_ID; // Usamos una variable de entorno para el GTM ID
 
 		if (gtmId) {
@@ -35,7 +37,9 @@ export default function MyApp({ Component, pageProps }) {
         })(window,document,'script','dataLayer','GTM-T9R26JTF');
       `}
 				</Script> */}
-				<Component {...pageProps} key={router.asPath} />
+				<LanguageProvider>
+					<Component {...pageProps} key={router.asPath} />
+				</LanguageProvider>
 			</FaustProvider>
 		</ApolloProvider>
 	);

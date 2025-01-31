@@ -1,4 +1,6 @@
 import Image from "next/image";
+// import useTranslation from '../../../hooks/useTranslation';
+
 
 import classNames from "classnames/bind";
 import styles from "./Carusel.module.scss";
@@ -11,7 +13,8 @@ import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-export default function Carusel({ data }) {
+export default function Carusel({ data, translations }) {
+	// const { translate } = useTranslation();
 	return (
 		<section className="section">
 			<Swiper
@@ -54,7 +57,7 @@ export default function Carusel({ data }) {
 					<div className="container">
 						{data?.titulo && (
 							<h1 className="fs-1 text-white text-uppercase fw-light">
-								{data?.titulo}
+								{translations.caruselTitulo || data?.titulo}
 							</h1>
 						)}
 

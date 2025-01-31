@@ -43,6 +43,7 @@ body {
 }
 
 body {
+	@extend .text-primary;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 }
@@ -109,7 +110,7 @@ a {
 .header {
 	transition: background .4s ease;
   &-scrolled {
-    background-color: rgba(0, 0, 0, 0.30);
+    background-color: rgba(34, 55, 107, 0.50);
   }
 
 	a {
@@ -156,7 +157,7 @@ p {
 		&-prev {
 			left: rem(-20);
 			&:after {
-				left: rem(-8);
+				left: rem(-4);
 			}
 
 			img {
@@ -167,10 +168,11 @@ p {
 		&-next {
 			right: rem(-20);
 			&:after {
-				right: rem(-8);
+				right: rem(-4);
 			}
 		}
 	}
+	
 	&-pagination {
 		display: flex;
 		justify-content: center;
@@ -369,6 +371,8 @@ p {
 
 	&-icon {
 		position: relative;
+		transform: translateX(3px);
+		
 		&:before {
 			content: "";
 			display: inline-block;
@@ -388,7 +392,8 @@ p {
 
 /* Sections */
 .section {
-	&TextImageTwo {
+	&TextImageTwo,
+	&TextImageTwoHorizontal {
 		background: url(/img/background-patern-1.jpg);
 	}
 }

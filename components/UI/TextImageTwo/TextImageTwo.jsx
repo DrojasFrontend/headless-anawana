@@ -8,7 +8,7 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
 export default function TextImageTwo({ data }) {
 	return (
-		<section className="section sectionTextImageTwo bg-white-100 py-4 py-lg-10">
+		<section className="section sectionTextImageTwo bg-white-100 py-4 py-lg-5">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-6 mb-3 mb-lg-0">
@@ -23,18 +23,21 @@ export default function TextImageTwo({ data }) {
 							)}
 
 							{data?.cta?.url && (
-								<a
-									href={data?.cta?.url}
-									target={data?.cta?.target}
-									className="button-icon"
-								>
-									<Image
-										src={slidePrevNext}
-										alt="ver mas"
-										width={53}
-										height={14}
-									/>
-								</a>
+								<div className="d-flex justify-content-center">
+									<a
+										href={data?.cta?.url}
+										className="button button-black"
+										target={data?.cta?.target}
+									>
+										<span className="line line-black">
+											{data?.cta?.title}
+											<span className="line-black-top"></span>
+											<span className="line-black-right"></span>
+											<span className="line-black-bottom"></span>
+											<span className="line-black-left"></span>
+										</span>
+									</a>
+								</div>
 							)}
 						</div>
 					</div>

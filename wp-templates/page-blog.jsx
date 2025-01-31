@@ -5,6 +5,7 @@ import Header from "../components/Layout/Header/Header";
 import BlogCarusel from "../components/UI/BlogCarusel/BlogCarusel";
 import BlogCaruselTwoSlides from "../components/UI/BlogCaruselTwoSlides/BlogCaruselTwoSlides";
 import FeaturedPosts from "../components/UI/FeaturedPosts/FeaturedPosts";
+import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component() {
 	const { data } = useQuery(GET_PAGE, {
@@ -14,7 +15,6 @@ export default function Component() {
 	const { data: menuData } = useQuery(GET_MENUS, {
 		variables: {
 			headerLocation: MENUS.PRIMARY_LOCATION,
-			menuHeaderLocation: MENUS.HEADER_LOCATION,
 		},
 	});
 
@@ -38,6 +38,9 @@ export default function Component() {
 
 	if (!firstTwo || !nextFive || !random) return null;
 
+	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
+	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+
 	return (
 		<>
 			<Header data={menuData} logo={logo} />
@@ -46,6 +49,7 @@ export default function Component() {
 				<BlogCaruselTwoSlides data={nextFive} grupoCarusel={grupoCarusel} />
 			)}
 			<FeaturedPosts data={randomizedData} />
+			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</>
 	);
 }
@@ -127,6 +131,42 @@ const GET_PAGE = gql`
 						}
 					}
 				}
+				grupoFooter {
+					menus {
+						tituloMenu
+						items {
+							cta {
+								url
+								title
+								target
+							}
+						}
+					}
+				}
+			}
+			configuracionTema {
+				grupoSocial {
+					redes {
+						cta {
+							target
+							title
+							url
+						}
+						icono {
+							mediaItemUrl
+						}
+					}
+					redesBlanco {
+						cta {
+							target
+							title
+							url
+						}
+						icono {
+							mediaItemUrl
+						}
+					}
+				}
 			}
 		}
 		page(id: $id, idType: DATABASE_ID) {
@@ -144,18 +184,8 @@ const GET_PAGE = gql`
 const GET_MENUS = gql`
 	query GetMenus(
 		$headerLocation: MenuLocationEnum
-		$menuHeaderLocation: MenuLocationEnum
 	) {
 		headerMenuItems: menuItems(where: { location: $headerLocation }) {
-			nodes {
-				id
-				path
-				label
-				target
-				cssClasses
-			}
-		}
-		menuHeaderMenuItems: menuItems(where: { location: $menuHeaderLocation }) {
 			nodes {
 				id
 				path

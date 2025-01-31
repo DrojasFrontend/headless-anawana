@@ -10,7 +10,7 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
 export default function FeaturedPosts({ data }) {
 	return (
-		<section className="section bg-white py-4 py-lg-10">
+		<section className="section bg-white py-4 py-lg-5">
 			<div className="container">
 				<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">Descubrir artículos</h2>
 				<div className="row">
@@ -30,15 +30,16 @@ export default function FeaturedPosts({ data }) {
 										height={post?.featuredImage?.node?.mediaDetails?.height}
 									/>
 									<div className="p-1">
-										<h3 className="fs-5 font-secondary mb-1">{post.title}</h3>
-										<span className="button-icon">
+										<h3 className="fs-6 font-secondary mb-1">{post.title}</h3>
+										<span>Leer Articulo</span>
+										{/* <span className="button-icon">
 											<Image
 												src={slidePrevNext}
 												alt="ver mas"
-												width={53}
-												height={14}
+												width={18}
+												height={18}
 											/>
-										</span>
+										</span> */}
 									</div>
 								</a>
 							</Link>
