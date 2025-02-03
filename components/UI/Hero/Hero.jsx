@@ -24,7 +24,7 @@ export default function Hero({ data }) {
 			>
 				<div className="col-lg-7">
 					{data.titulo && (
-						<h1 className="fs-1 text-white text-center text-uppercase fw-light">
+						<h1 className="fs-1 text-white text-center text-uppercase fw-light px-2">
 							{data.titulo}
 						</h1>
 					)}

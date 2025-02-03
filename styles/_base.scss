@@ -129,6 +129,14 @@ a {
 	}
 }
 
+.menuMobile {
+  transform: translate3d(100%, 0, 0);
+	transition: transform 0.4s ease;
+  &.active {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .logo {
 	transition: all .4s ease;
 	&Secundario {
