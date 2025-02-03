@@ -110,11 +110,33 @@ a {
 .header {
 	transition: background .4s ease;
   &-scrolled {
-    background-color: rgba(34, 55, 107, 0.50);
+    @extend .bg-white;
+
+		.logo {
+			opacity: 0;
+			&Secundario {
+				opacity: 1;
+			}
+		}
+
+		a, button {
+			@extend .text-primary;
+		}
   }
 
 	a {
 		letter-spacing: 2px;
+	}
+}
+
+.logo {
+	transition: all .4s ease;
+	&Secundario {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: all .4s ease;
 	}
 }
 

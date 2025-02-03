@@ -33,13 +33,24 @@ export default function Header({ data, logo }) {
 					<div className="col-lg-2">
 						<Link href="/">
 							<a className="d-flex justify-content-center align-items-center h-100 position-relative">
-								<Image
-									src={logo?.mediaItemUrl}
-									alt={logo?.mediaItemUrl?.altText}
-									width={250}
-									height={100}
-									objectFit="contain"
-								/>
+								<div className="logo">
+									<Image
+										src={logo?.logo?.mediaItemUrl}
+										alt={logo?.logo?.mediaItemUrl?.altText}
+										width={250}
+										height={100}
+										objectFit="contain"
+									/>
+								</div>
+								<div className="logoSecundario">
+									<Image
+										src={logo?.logoHover?.mediaItemUrl}
+										alt={logo?.logoHover?.mediaItemUrl?.altText}
+										width={250}
+										height={100}
+										objectFit="contain"
+									/>
+								</div>
 							</a>
 						</Link>
 					</div>

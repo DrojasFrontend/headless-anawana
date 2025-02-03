@@ -20,7 +20,7 @@ export default function FeaturedPosts({ data }) {
 								<a
 									className={cx([
 										"article",
-										"d-flex flex-column shadow rounded",
+										"d-flex flex-column shadow rounded h-100",
 									])}
 								>
 									<Image
@@ -31,7 +31,7 @@ export default function FeaturedPosts({ data }) {
 									/>
 									<div className="p-1">
 										<h3 className="fs-6 font-secondary mb-1">{post.title}</h3>
-										<span>Leer Articulo</span>
+										<span>Leer articulo</span>
 										{/* <span className="button-icon">
 											<Image
 												src={slidePrevNext}

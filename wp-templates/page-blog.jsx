@@ -22,7 +22,7 @@ export default function Component() {
 	const { data: nextFive } = useQuery(GET_NEXT_POSTS);
 	const { data: random } = useQuery(GET_RANDOM_POSTS);
 
-	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader?.logo;
+	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
 
 	const randomizedData = random
 		? {
@@ -125,10 +125,10 @@ const GET_PAGE = gql`
 					logo {
 						altText
 						mediaItemUrl
-						mediaDetails {
-							width
-							height
-						}
+					}
+					logoHover {
+						altText
+						mediaItemUrl
 					}
 				}
 				grupoFooter {

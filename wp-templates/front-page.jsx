@@ -21,7 +21,7 @@ export default function Component(props) {
 		},
 	});
 
-	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader?.logo;
+	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
 
 	const mostrarCarusel = data?.page?.paginaInicio?.mostrar;
 	const mostrarGaleria = data?.page?.paginaInicio?.mostrarGaleria;
@@ -32,7 +32,8 @@ export default function Component(props) {
 	const dataGaleriaGrande = data?.page?.paginaInicio?.grupoGaleriaGrande;
 	const dataTextoImagenes = data?.page?.paginaInicio?.grupoTextoImagenes;
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
-	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redesBlanco;
+	const redes =
+		data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redesBlanco;
 
 	return (
 		<div>
@@ -57,10 +58,10 @@ const GET_PAGE = gql`
 					logo {
 						altText
 						mediaItemUrl
-						mediaDetails {
-							width
-							height
-						}
+					}
+					logoHover {
+						altText
+						mediaItemUrl
 					}
 				}
 				grupoFooter {
@@ -135,6 +136,8 @@ const GET_PAGE = gql`
 						url
 					}
 					slides {
+						titulo
+						descripcion
 						imagen {
 							altText
 							mediaItemUrl

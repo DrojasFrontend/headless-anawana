@@ -17,7 +17,7 @@ export default function Component(props) {
 		},
 	});
 
-	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader?.logo;
+	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
 	const mostrarHero = data?.page?.paginaContacto?.mostrarHero;
 	const grupoHero = data?.page?.paginaContacto?.grupoHero;
 	const tituloContacto = data?.page?.paginaContacto?.grupoFormulario?.titulo;
@@ -53,10 +53,10 @@ const GET_PAGE = gql`
 					logo {
 						altText
 						mediaItemUrl
-						mediaDetails {
-							width
-							height
-						}
+					}
+					logoHover {
+						altText
+						mediaItemUrl
 					}
 				}
 				grupoFooter {

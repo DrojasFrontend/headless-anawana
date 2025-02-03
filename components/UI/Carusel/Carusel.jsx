@@ -43,6 +43,7 @@ export default function Carusel({ data, translations }) {
 								alt={slide?.imagen?.altText}
 								layout="fill"
 								objectFit="cover"
+								priority={true}
 							/>
 						</div>
 					</SwiperSlide>

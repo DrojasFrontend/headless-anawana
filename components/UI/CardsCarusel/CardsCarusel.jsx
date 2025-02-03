@@ -26,9 +26,7 @@ export default function CardsCarusel({ data }) {
 						)}
 						{data?.descripcion && (
 							<div className="col-lg-10 m-auto">
-								<p className="text-gray fs-p">
-									{data?.descripcion}
-								</p>
+								<p className="text-gray fs-p">{data?.descripcion}</p>
 							</div>
 						)}
 					</div>
@@ -66,16 +64,16 @@ export default function CardsCarusel({ data }) {
 										width={slide?.imagen?.mediaDetails?.width}
 										height={slide?.imagen?.mediaDetails?.height}
 									/>
+									<div className="position-absolute bottom-0 p-1 z-1">
+										<h3 className="fs-6 text-white text-start">{slide.titulo}</h3>
+										<p className="fs-p text-white">{slide.descripcion}</p>
+									</div>
 								</div>
 							</SwiperSlide>
 						))}
 					</Swiper>
-					<div className="swiper-button-prev">
-						
-					</div>
-					<div className="swiper-button-next">
-						
-					</div>
+					<div className="swiper-button-prev"></div>
+					<div className="swiper-button-next"></div>
 				</div>
 			</div>
 			{data?.cta?.url && (

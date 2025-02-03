@@ -17,12 +17,12 @@ export default function Footer({ data, logo, redes }) {
 				<div className="row">
 					{/* Logo Section */}
 					<div className="col-xl-5 mb-3 mb-xl-0">
-						{logo?.mediaItemUrl && (
+						{logo?.logo?.mediaItemUrl && (
 							<Link href="/">
 								<a className="d-flex align-items-center justify-content-xl-start justify-content-center jus h-100 position-relative">
 									<Image
-										src={logo.mediaItemUrl}
-										alt={logo?.mediaItemUrl?.altText || "Logo"}
+										src={logo?.logo?.mediaItemUrl}
+										alt={logo?.logo?.mediaItemUrl?.altText || "Logo"}
 										width={250}
 										height={100}
 										objectFit="contain"

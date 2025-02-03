@@ -9,7 +9,7 @@ module.exports = withFaust({
     includePaths: ['node_modules'],
   },
   images: {
-    domains: ['backend-anawana.local'],
+    domains: [getWpHostname()],
   },
   i18n: {
     locales: ['en'],
@@ -19,7 +19,7 @@ module.exports = withFaust({
     return [
       {
         source: '/wp-content/:path*',
-        destination: 'http://localhost/anawana/wp-content/:path*', // Ajusta esta ruta según tu configuración local
+        destination: 'https://anawanapremiumhomes.com/wp-content/:path*',
       },
     ]
   },

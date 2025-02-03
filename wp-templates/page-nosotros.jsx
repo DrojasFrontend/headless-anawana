@@ -20,7 +20,7 @@ export default function Component(props) {
 		},
 	});
 
-	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader?.logo;
+	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
 
 	const mostrarHero = data?.page?.paginaNosotros?.mostrarHero;
 	const mostrarTextoImagen = data?.page?.paginaNosotros?.mostrarTextoImagen;
@@ -58,10 +58,10 @@ const GET_PAGE = gql`
 					logo {
 						altText
 						mediaItemUrl
-						mediaDetails {
-							width
-							height
-						}
+					}
+					logoHover {
+						altText
+						mediaItemUrl
 					}
 				}
 				grupoFooter {
