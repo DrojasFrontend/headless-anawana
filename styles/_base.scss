@@ -148,9 +148,8 @@ p {
 				width: rem(30);
 				height: rem(30);
 				margin-top: rem(-17);
-				border: 1px solid;
-				border-radius: rem(30);
-				@extend .text-secondary;
+				background: url(/icons/arrow-circle.png);
+				background-size: contain;
 			}
 		}
 
@@ -158,10 +157,10 @@ p {
 			left: rem(-20);
 			&:after {
 				left: rem(-4);
+				transform: scaleX(-1);
 			}
 
 			img {
-				transform: scaleX(-1);
 			}
 		}
 

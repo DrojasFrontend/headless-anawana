@@ -24,7 +24,7 @@ export default function TextGridThreeImages({ data }) {
 				</div>
 				<div className="row">
 					{data?.imagenes?.map((imagen, index) => (
-						<div key={index} className="col-lg-4">
+						<div key={index} className={`col-lg-4 ${index === 1 ? 'mt-lg-5' : ''}`}>
 							<div className={cx(["img", "d-flex mb-1 mb-lg-0 position-relative justify-content-center"])}>
 								<Image
 									src={imagen?.imagen?.mediaItemUrl}

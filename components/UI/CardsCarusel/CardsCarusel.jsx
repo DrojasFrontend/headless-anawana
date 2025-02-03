@@ -71,10 +71,10 @@ export default function CardsCarusel({ data }) {
 						))}
 					</Swiper>
 					<div className="swiper-button-prev">
-						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
+						
 					</div>
 					<div className="swiper-button-next">
-						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
+						
 					</div>
 				</div>
 			</div>

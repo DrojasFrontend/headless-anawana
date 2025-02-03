@@ -38,7 +38,7 @@ export default function CardsCarusel({ data }) {
 					</div>
 				</div>
 			</div>
-			<div className="px-2 px-lg-4">
+			<div className="px-2 px-lg-4 pb-3 pb-xl-0">
 				<div className="container position-relative">
 					<Swiper
 						modules={[Autoplay, Navigation, Pagination, EffectFade]}
@@ -71,16 +71,16 @@ export default function CardsCarusel({ data }) {
 						))}
 					</Swiper>
 					<div className="swiper-button-prev">
-						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
+						
 					</div>
 					<div className="swiper-button-next">
-						<Image src={slidePrevNext} alt="Slide 1" width={18} height={18} />
+						
 					</div>
 				</div>
 			</div>
 
-			<div className={cx(["bg", "bg-primary pt-10 mt-n10"])}>
-				<div className="py-5">
+			<div className={cx(["bg", "bg-primary pt-xl-10 mt-xl-n10"])}>
+				<div className="py-4 py-xl-5">
 					<div className="container">
 						<div className="row">
 							{data?.items?.map((item, index) => (
