@@ -108,9 +108,9 @@ a {
 }
 
 .header {
-	transition: background .4s ease;
-  &-scrolled {
-    @extend .bg-white;
+	transition: background 0.4s ease;
+	&-scrolled {
+		@extend .bg-white;
 
 		.logo {
 			opacity: 0;
@@ -119,10 +119,11 @@ a {
 			}
 		}
 
-		a, button {
+		a,
+		button {
 			@extend .text-primary;
 		}
-  }
+	}
 
 	a {
 		letter-spacing: 2px;
@@ -130,21 +131,21 @@ a {
 }
 
 .menuMobile {
-  transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
 	transition: transform 0.4s ease;
-  &.active {
-    transform: translate3d(0, 0, 0);
-  }
+	&.active {
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 .logo {
-	transition: all .4s ease;
+	transition: all 0.4s ease;
 	&Secundario {
 		position: absolute;
 		top: 0;
 		left: 0;
 		opacity: 0;
-		transition: all .4s ease;
+		transition: all 0.4s ease;
 	}
 }
 
@@ -201,7 +202,7 @@ p {
 			}
 		}
 	}
-	
+
 	&-pagination {
 		display: flex;
 		justify-content: center;
@@ -298,7 +299,7 @@ p {
 	.line {
 		padding: rem(5) rem(30);
 		@extend .w-100, .position-relative;
-		
+
 		&-white {
 			border: rem(1) solid rgba(255, 255, 255, 0.5);
 
@@ -401,7 +402,7 @@ p {
 	&-icon {
 		position: relative;
 		transform: translateX(3px);
-		
+
 		&:before {
 			content: "";
 			display: inline-block;
@@ -424,5 +425,19 @@ p {
 	&TextImageTwo,
 	&TextImageTwoHorizontal {
 		background: url(/img/background-patern-1.jpg);
+	}
+
+	&CardsCarusel,
+	&BannerCarusel {
+		.swiper-button {
+			&-next,
+			&-prev {
+				display: none;
+
+				@media only screen and (min-width: 1024px) {
+					display: block;
+				}
+			}
+		}
 	}
 }
