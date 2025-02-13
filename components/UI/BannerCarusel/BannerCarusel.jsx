@@ -53,6 +53,11 @@ export default function CardsCarusel({ data }) {
 							nextEl: ".swiper-button-next",
 							prevEl: ".swiper-button-prev",
 						}}
+						breakpoints={{
+							1024: {
+								slidesPerView: 1,
+							},
+						}}
 						pagination={false}
 						// onSlideChange={() => console.log('slide change')}
 						className="mySwiper"
