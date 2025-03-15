@@ -1,5 +1,12 @@
 {
   "en": {
+    "menu": {
+      "inicio": "Home",
+      "nosotros": "About",
+      "contacto": "Contact us",
+      "reservar": "Reserve",
+      "blog": "Blog"
+    },
     "inicio": {
       "caruselTitulo": "Luxury Homes in Cartagena",
       "caruselDescripcion": "Luxury living in Cartagena’s most prestigious homes.",
@@ -28,6 +35,13 @@
     }
   },
   "es": {
+    "menu": {
+      "inicio": "Inicio",
+      "nosotros": "Nosotros",
+      "contacto": "Contacto",
+      "reservar": "Reservar",
+      "blog": "Blog"
+    },
     "inicio": {
       "caruselTitulo": "Casas de lujo en Cartagena",
       "caruselDescripcion": "Vive el lujo en las casas más exclusivas",

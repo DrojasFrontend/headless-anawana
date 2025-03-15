@@ -32,8 +32,6 @@ export default function Component(props) {
 	const redes =
 		data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
 
-		console.log(data?.themeGeneralSettings?.configuracionTema);
-
 	return (
 		<div>
 			<Header data={menuData} logo={logo} />

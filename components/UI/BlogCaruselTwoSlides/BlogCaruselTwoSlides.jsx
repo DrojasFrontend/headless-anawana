@@ -14,7 +14,6 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 export default function BlogCarusel({ data, grupoCarusel, translations }) {
-	console.log(grupoCarusel);
 	return (
 		<section className="sectionBlogCaruselTwoSlides bg-white-100 py-4 py-lg-5">
 			<div className="px-1">

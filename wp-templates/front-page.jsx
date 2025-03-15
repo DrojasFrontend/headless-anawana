@@ -38,7 +38,7 @@ export default function Component(props) {
 
 	return (
 		<div>
-			<Header data={menuData} logo={logo} />
+			<Header data={menuData} logo={logo} translations={translations} />
 			{mostrarCarusel && (
 				<Carusel data={dataSlide} translations={translations} />
 			)}
