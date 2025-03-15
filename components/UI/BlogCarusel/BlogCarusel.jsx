@@ -11,7 +11,7 @@ import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-export default function BlogCarusel({ data }) {
+export default function BlogCarusel({ data, translations }) {
 	return (
 		<section className="section">
 			<Swiper

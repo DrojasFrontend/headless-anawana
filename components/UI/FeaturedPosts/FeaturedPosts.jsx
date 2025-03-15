@@ -8,11 +8,11 @@ let cx = classNames.bind(styles);
 
 import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
-export default function FeaturedPosts({ data }) {
+export default function FeaturedPosts({ data, translations }) {
 	return (
-		<section className="section bg-white py-4 py-lg-5">
+		<section className="sectionFeaturedPosts bg-white py-4 py-lg-5">
 			<div className="container">
-				<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">Descubrir artículos</h2>
+				<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">{translations.sectionFeaturedPostsTitulo || 'Descubrir artículos'}</h2>
 				<div className="row">
 					{data?.posts?.nodes?.map((post, index) => (
 						<article key={index} className="col-lg-4 mb-2">

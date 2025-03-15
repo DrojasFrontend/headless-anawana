@@ -13,7 +13,7 @@ import "swiper/css/effect-fade";
 
 import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
-export default function CardsCarusel({ data }) {
+export default function CardsCarusel({ data, translations }) {
 	return (
 		<section className="section sectionCardsCarusel bg-white-100 py-4 py-lg-5">
 			<div className="container">
@@ -21,12 +21,14 @@ export default function CardsCarusel({ data }) {
 					<div className="col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
 							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-								{data?.titulo}
+							{translations?.sectionCardsCaruselTitulo || data?.titulo}
 							</h2>
 						)}
 						{data?.descripcion && (
 							<div className="col-lg-10 m-auto">
-								<p className="text-gray fs-p">{data?.descripcion}</p>
+								<p className="text-gray fs-p">
+								{translations?.sectionCardsCaruselDescripcion || data?.titulo}
+								</p>
 							</div>
 						)}
 					</div>

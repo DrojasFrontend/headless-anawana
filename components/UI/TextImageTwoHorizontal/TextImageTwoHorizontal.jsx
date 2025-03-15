@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./TextImageOne.module.scss";
 let cx = classNames.bind(styles);
 
-export default function TextImageOne({ data }) {
+export default function TextImageOne({ data, translations }) {
 	return (
 		<section className="section sectionTextImageTwoHorizontal section bg-white-100 py-4 py-lg-5">
 			<div className="container">
@@ -12,11 +12,11 @@ export default function TextImageOne({ data }) {
 					<div className="col-lg-4 mb-3 mb-lg-0">
 						{data?.titulo && (
 							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-								{data?.titulo}
+								{translations.sectionTextImageTwoHorizontalTitulo || data?.titulo}
 							</h2>
 						)}
 						{data?.descripcion && (
-							<p className="text-gray mb-3">{data?.descripcion}</p>
+							<p className="text-gray mb-3">{translations.sectionTextImageTwoHorizontalDescripcion || data?.descripcion}</p>
 						)}
 						{data?.cta?.url && (
 							<a

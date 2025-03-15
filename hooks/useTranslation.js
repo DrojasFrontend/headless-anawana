@@ -4,7 +4,8 @@ import translations from '../public/translations.json';
 
 const useTranslation = (pageId) => {
   const router = useRouter();
-  const { language } = useLanguage();
+  const languageContext = useLanguage();
+  const language = languageContext?.language || 'en';
   const currentPage = pageId || router.pathname.replace('/', '');
   const translationsForPage = translations?.[language]?.[currentPage] || {};
   return { translations: translationsForPage };

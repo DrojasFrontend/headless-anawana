@@ -13,39 +13,27 @@ import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-export default function BlogCarusel({ data, grupoCarusel }) {
+export default function BlogCarusel({ data, grupoCarusel, translations }) {
 	console.log(grupoCarusel);
 	return (
-		<section className="section bg-white-100 py-4 py-lg-5">
+		<section className="sectionBlogCaruselTwoSlides bg-white-100 py-4 py-lg-5">
 			<div className="px-1">
 				<div className="row">
 					<div className="col-xl-3 mb-3">
 						{grupoCarusel.titulo && (
 							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-								{grupoCarusel.titulo}
+								{translations.sectionBlogCaruselTwoSlidesTitulo || grupoCarusel.titulo}
 							</h2>
 						)}
 
 						{grupoCarusel.descripcion && (
-							<p className="text-gray mb-3">{grupoCarusel.descripcion}</p>
+							<p className="text-gray mb-3">{translations.sectionBlogCaruselTwoSlidesDescripcion || grupoCarusel.descripcion}</p>
 						)}
 						
 						<div className="col-1 position-relative m-auto">
 							<div className="swiper-button-prev">
-								<Image
-									src={slidePrevNext}
-									alt="Slide 1"
-									width={18}
-									height={14}
-								/>
 							</div>
 							<div className="swiper-button-next">
-								<Image
-									src={slidePrevNext}
-									alt="Slide 1"
-									width={18}
-									height={14}
-								/>
 							</div>
 						</div>
 					</div>

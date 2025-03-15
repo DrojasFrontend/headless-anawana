@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
+import useTranslation from "../hooks/useTranslation";
 import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
@@ -7,7 +9,8 @@ import Forms from "../components/Forms/Forms";
 import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component(props) {
-	const { data } = useQuery(GET_PAGE, {
+	const { translations } = useTranslation("contacto");
+	const { data } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
 
@@ -34,18 +37,19 @@ export default function Component(props) {
 	return (
 		<div>
 			<Header data={menuData} logo={logo} />
-			{mostrarHero && <Hero data={grupoHero} />}
+			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
 			<Forms
 				titulo={tituloContacto}
 				redes={grupoConfiguracionTemaRedes}
 				contactos={grupoConfiguracionTemaContactos}
+				translations={translations}
 			/>
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</div>
 	);
 }
 
-const GET_PAGE = gql`
+Component.query = gql`
 	query GetPage($id: ID!) {
 		themeGeneralSettings {
 			headerFooter {

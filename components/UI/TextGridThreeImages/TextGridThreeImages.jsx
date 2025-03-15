@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./TextGridThreeImages.module.scss";
 let cx = classNames.bind(styles);
 
-export default function TextGridThreeImages({ data }) {
+export default function TextGridThreeImages({ data, translations }) {
 	return (
 		<section className="section sectionTextGridThreeImages bg-white py-4 py-lg-5">
 			<div className="container">
@@ -13,11 +13,11 @@ export default function TextGridThreeImages({ data }) {
 						<div className="text-center">
 							{data?.titulo && (
 								<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-									{data?.titulo}
+									{translations.sectionTextGridThreeImagesTitulo || data?.titulo}
 								</h2>
 							)}
 							{data?.descripcion && (
-								<p className="text-gray mb-3">{data?.descripcion}</p>
+								<p className="text-gray mb-3">{translations.sectionTextGridThreeImagesDescripcion || data?.descripcion}</p>
 							)}
 						</div>
 					</div>

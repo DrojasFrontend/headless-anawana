@@ -1,12 +1,58 @@
 {
   "en": {
     "inicio": {
-      "caruselTitulo": "Bienvenido a Anawana"
+      "caruselTitulo": "Luxury Homes in Cartagena",
+      "caruselDescripcion": "Luxury living in Cartagena’s most prestigious homes.",
+      "sectionCardsCaruselTitulo": "Discover exclusive luxury rentals in Cartagena's best locations",
+      "sectionCardsCaruselDescripcion": "Experience the best of Cartagena by staying in an exclusive private home. Our luxury rentals in Cartagena offer unmatched privacy, top-tier comfort, and prime locations near the Walled City, beaches, and vibrant districts. Whether for a short stay or a long retreat, find the perfect space for an unparalleled experience.",
+      "sectionBannerCaruselTitulo": "Luxury home rentals in Islas del Rosario and Barú",
+      "sectionBannerCaruselDescripcion": "Find the perfect luxury home rental in Islas del Rosario or Barú for your next getaway. Our private vacation homes offer fully equipped spaces, personalized service, and stunning views. Unwind in a beachfront home in Barú or enjoy the privacy of an exclusive property surrounded by nature in Islas del Rosario, all with the comfort and exclusivity of a private home.",
+      "sectionTextGridThreeImagesTitulo": "Discover Cartagena like a local",
+      "sectionTextGridThreeImagesDescripcion": "Our blog is your guide to exploring Cartagena, Islas del Rosario, and Barú. Discover their culture, landscapes, and the experiences that make these destinations unique."
+    },
+    "nosotros": {
+      "sectionHeroTitulo": "Anawana, experts in luxury vacation rentals",
+      "sectionTextImageTitulo": "Luxury stays, designed for comfort",
+      "sectionTextImageDescripcion": "Anawana Premium Homes offers luxury vacation rentals in Cartagena, Barú, and Islas del Rosario. Our exclusive properties combine privacy, comfort, and top-tier service. We ensure a seamless stay with high-end amenities and personalized attention. Unlike traditional rentals, we provide experiences that go beyond accommodation.",
+      "sectionTextGridImagesTitulo": "A philosophy built on comfort and privacy",
+      "sectionTextGridImagesDescripcion": "At Anawana, every detail matters. Our high-end hospitality guarantees comfort and privacy in the best locations. "
+    },
+    "contacto": {
+      "sectionHeroTitulo": "Contact us to rent exclusive homes in Cartagena",
+      "sectionFormTitulo": "Do you have any questions or want to make a reservation?"
+    },
+    "blog": {
+      "sectionBlogCaruselTwoSlidesTitulo": "The best of Cartagena, Barú, and Islas del Rosario",
+      "sectionBlogCaruselTwoSlidesDescripcion": "Explore history, culture, and hidden gems of Cartagena and its islands.",
+      "sectionFeaturedPostsTitulo": "Explore all articles"
     }
   },
   "es": {
     "inicio": {
-      "caruselTitulo": "Welcome to Anawana"
+      "caruselTitulo": "Casas de lujo en Cartagena",
+      "caruselDescripcion": "Vive el lujo en las casas más exclusivas",
+      "sectionCardsCaruselTitulo": "Descubre alquileres de lujo exclusivos en las mejores ubicaciones de Cartagena",
+      "sectionCardsCaruselDescripcion": "Vive lo mejor de Cartagena alojándote en una casa privada exclusiva. Nuestros alquileres de lujo en Cartagena ofrecen privacidad incomparable, confort de primer nivel y ubicaciones privilegiadas cerca del Centro Histórico, las playas y las zonas más vibrantes. Ya sea para una estadía corta o una escapada prolongada, encuentra el espacio perfecto para una experiencia inigualable.",
+      "sectionBannerCaruselTitulo": "Alquiler de casas de lujo en Islas del Rosario y Barú",
+      "sectionBannerCaruselDescripcion": "Encuentra la casa de lujo perfecta en Islas del Rosario o Barú para tu próxima escapada. Nuestras casas privadas ofrecen espacios completamente equipados, servicio personalizado y vistas espectaculares. Relájate en una casa frente al mar en Barú o disfruta de la privacidad de una propiedad exclusiva rodeada de naturaleza en Islas del Rosario, todo con la comodidad y exclusividad de un hogar privado.",
+      "sectionTextGridThreeImagesTitulo": "Descubre Cartagena como un local",
+      "sectionTextGridThreeImagesDescripcion": "Nuestro blog es tu guía para conocer Cartagena, Islas del Rosario y Barú. Explora su cultura, sus paisajes y las experiencias que hacen de estos destinos lugares únicos."
+    },
+    "nosotros": {
+      "sectionHeroTitulo": "Anawana, expertos en alquileres vacacionales de lujo",
+      "sectionTextImageTitulo": "Estadías de lujo, diseñadas para el confort",
+      "sectionTextImageDescripcion": "Anawana Premium Homes ofrece alquileres vacacionales de lujo en Cartagena, Barú e Islas del Rosario. Nuestras propiedades exclusivas combinan privacidad, comodidad y servicio de primer nivel. Garantizamos una estadía sin preocupaciones, con comodidades de alta gama y atención personalizada. A diferencia de los alquileres tradicionales, ofrecemos experiencias que van más allá del alojamiento.",
+      "sectionTextGridImagesTitulo": "Una filosofía basada en confort y privacidad",
+      "sectionTextGridImagesDescripcion": "En Anawana, cada detalle cuenta. Nuestra hospitalidad de alto nivel garantiza comodidad y privacidad en las mejores ubicaciones. "
+    },
+    "contacto": {
+      "sectionHeroTitulo": "Contáctanos para alquilar casas exclusivas en Cartagena",
+      "sectionFormTitulo": "¿Tienes alguna pregunta o deseas hacer una reserva?"
+    },
+    "blog": {
+      "sectionBlogCaruselTwoSlidesTitulo": "Lo mejor de Cartagena, Barú e Islas del Rosario",
+      "sectionBlogCaruselTwoSlidesDescripcion": "Explora la historia, cultura y rincones únicos de Cartagena y sus islas.",
+      "sectionFeaturedPostsTitulo": "Explora todos los artículos"
     }
   }
 }

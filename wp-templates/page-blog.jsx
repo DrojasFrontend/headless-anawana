@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
+import useTranslation from "../hooks/useTranslation";
 import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
@@ -8,7 +10,8 @@ import FeaturedPosts from "../components/UI/FeaturedPosts/FeaturedPosts";
 import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component() {
-	const { data } = useQuery(GET_PAGE, {
+	const { translations } = useTranslation("blog");
+	const { data } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
 
@@ -44,11 +47,11 @@ export default function Component() {
 	return (
 		<>
 			<Header data={menuData} logo={logo} />
-			<BlogCarusel data={firstTwo} />
+			<BlogCarusel data={firstTwo} translations={translations} />
 			{mostrarCarusel && (
-				<BlogCaruselTwoSlides data={nextFive} grupoCarusel={grupoCarusel} />
+				<BlogCaruselTwoSlides data={nextFive} grupoCarusel={grupoCarusel} translations={translations} />
 			)}
-			<FeaturedPosts data={randomizedData} />
+			<FeaturedPosts data={randomizedData} translations={translations} />
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</>
 	);
@@ -117,7 +120,7 @@ const GET_RANDOM_POSTS = gql`
 	}
 `;
 
-const GET_PAGE = gql`
+Component.query = gql`
 	query GetPage($id: ID!) {
 		themeGeneralSettings {
 			headerFooter {

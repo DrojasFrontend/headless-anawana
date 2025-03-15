@@ -6,9 +6,9 @@ let cx = classNames.bind(styles);
 
 import banner from "/public/img/slide-background-1.jpg";
 
-export default function Hero({ data }) {
+export default function Hero({ data, translations }) {
 	return (
-		<section className={cx(["bg", "position-relative"])}>
+		<section className={cx(["bg", "sectionHero position-relative"])}>
 			
 			<Image
 				src={data?.imagen?.mediaItemUrl}
@@ -25,7 +25,7 @@ export default function Hero({ data }) {
 				<div className="col-lg-7">
 					{data.titulo && (
 						<h1 className="fs-1 text-white text-center text-uppercase fw-light px-2">
-							{data.titulo}
+							{translations.sectionHeroTitulo || data.titulo}
 						</h1>
 					)}
 				</div>

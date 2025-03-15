@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import * as MENUS from "../constants/menus";
 import useTranslation from "../hooks/useTranslation";
+import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
 import Carusel from "../components/UI/Carusel/Carusel";
@@ -11,7 +12,7 @@ import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component(props) {
 	const { translations } = useTranslation("inicio");
-	const { data } = useQuery(GET_PAGE, {
+	const { data } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
 
@@ -41,16 +42,16 @@ export default function Component(props) {
 			{mostrarCarusel && (
 				<Carusel data={dataSlide} translations={translations} />
 			)}
-			{mostrarGaleria && <CardsCarusel data={dataGaleria} />}
-			{mostrarGaleriaGrande && <BannerCarusel data={dataGaleriaGrande} />}
-			{mostrarTextoImagenes && <TextGridThreeImages data={dataTextoImagenes} />}
+			{mostrarGaleria && <CardsCarusel data={dataGaleria} translations={translations} />}
+			{mostrarGaleriaGrande && <BannerCarusel data={dataGaleriaGrande} translations={translations} />}
+			{mostrarTextoImagenes && <TextGridThreeImages data={dataTextoImagenes} translations={translations} />}
 
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</div>
 	);
 }
 
-const GET_PAGE = gql`
+Component.query = gql`
 	query GetPage($id: ID!) {
 		themeGeneralSettings {
 			headerFooter {

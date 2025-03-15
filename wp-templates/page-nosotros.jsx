@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
+import useTranslation from "../hooks/useTranslation";
 import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
@@ -10,7 +12,8 @@ import TextImageTwoHorizontal from "../components/UI/TextImageTwoHorizontal/Text
 import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component(props) {
-	const { data } = useQuery(GET_PAGE, {
+	const { translations } = useTranslation("nosotros");
+	const { data } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
 
@@ -40,17 +43,17 @@ export default function Component(props) {
 	return (
 		<div>
 			<Header data={menuData} logo={logo} />
-			{mostrarHero && <Hero data={grupoHero} />}
-			{mostrarTextoImagen && <TextImage data={grupoTextoImagen} />}
-			{mostrarTextoImagenes && <TextImageTwo data={grupoTextoImagenes} />}
-			{mostrarTextoGridImagenes && (<TextGridImages data={grupoTextoGridImagenes} />)}
-			{mostrarTextoImagenesHorizontales && (<TextImageTwoHorizontal data={grupoTextoImagenesHorizontales} />)}
+			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
+			{mostrarTextoImagen && <TextImage data={grupoTextoImagen} translations={translations} />}
+			{mostrarTextoImagenes && <TextImageTwo data={grupoTextoImagenes} translations={translations} />}
+			{mostrarTextoGridImagenes && (<TextGridImages data={grupoTextoGridImagenes} translations={translations} />)}
+			{mostrarTextoImagenesHorizontales && (<TextImageTwoHorizontal data={grupoTextoImagenesHorizontales} translations={translations} />)}
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</div>
 	);
 }
 
-const GET_PAGE = gql`
+Component.query = gql`
 	query GetPage($id: ID!) {
 		themeGeneralSettings {
 			headerFooter {

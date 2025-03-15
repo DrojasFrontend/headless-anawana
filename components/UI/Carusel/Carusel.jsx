@@ -1,7 +1,4 @@
 import Image from "next/image";
-// import useTranslation from '../../../hooks/useTranslation';
-
-
 import classNames from "classnames/bind";
 import styles from "./Carusel.module.scss";
 let cx = classNames.bind(styles);
@@ -14,7 +11,6 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 export default function Carusel({ data, translations }) {
-	// const { translate } = useTranslation();
 	return (
 		<section className="section">
 			<Swiper
@@ -32,7 +28,6 @@ export default function Carusel({ data, translations }) {
 				}}
 				navigation
 				pagination={{ clickable: true }}
-				// onSlideChange={() => console.log('slide change')}
 				className="mySwiper"
 			>
 				{data?.slides?.map((slide, index) => (
@@ -58,13 +53,13 @@ export default function Carusel({ data, translations }) {
 					<div className="container">
 						{data?.titulo && (
 							<h1 className="fs-1 text-white text-uppercase fw-light">
-								{translations.caruselTitulo || data?.titulo}
+								{translations?.caruselTitulo || data?.titulo}
 							</h1>
 						)}
 
 						{data?.descripcion && (
 							<p className={cx(["text", "text-white fs-medium fw-light mb-2"])}>
-								{data?.descripcion}
+								{translations?.caruselDescripcion || data?.descripcion}
 							</p>
 						)}
 						{data?.cta?.url && (
@@ -74,7 +69,7 @@ export default function Carusel({ data, translations }) {
 								target={data?.cta?.target}
 							>
 								<span className="line line-white">
-									{data?.cta?.title}
+									{translations?.ctaText || data?.cta?.title}
 									<span className="line-white-top"></span>
 									<span className="line-white-right"></span>
 									<span className="line-white-bottom"></span>

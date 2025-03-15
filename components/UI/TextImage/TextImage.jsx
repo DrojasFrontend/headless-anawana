@@ -6,20 +6,20 @@ let cx = classNames.bind(styles);
 
 import slidePrevNext from "/public/icons/icon-next-slide.svg";
 
-export default function TextImageTwo({ data }) {
+export default function TextImageTwo({ data, translations }) {
 	return (
-		<section className="section bg-white-100 pt-4 pt-lg-5">
+		<section className="sectionTextImage bg-white-100 pt-4 pt-lg-5">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-6 mb-3 mb-lg-0">
 						<div className="d-flex flex-column justify-content-center h-100 pe-lg-5">
 							{data?.titulo && (
 								<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-									{data?.titulo}
+									{translations.sectionTextImageTitulo || data?.titulo}
 								</h2>
 							)}
 							{data?.descripcion && (
-								<p className="text-gray">{data?.descripcion}</p>
+								<p className="text-gray">{translations.sectionTextImageDescripcion || data?.descripcion}</p>
 							)}
 
 							{data?.cta?.url && (

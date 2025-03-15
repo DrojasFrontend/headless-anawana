@@ -17,7 +17,7 @@ import slideIcon2 from "/public/icons/icon-img-2.png";
 import slideIcon3 from "/public/icons/icon-img-3.png";
 import slideIcon4 from "/public/icons/icon-img-4.png";
 
-export default function CardsCarusel({ data }) {
+export default function CardsCarusel({ data, translations }) {
 	return (
 		<section className="section sectionBannerCarusel bg-white pt-4 pt-lg-5">
 			<div className="container">
@@ -25,13 +25,13 @@ export default function CardsCarusel({ data }) {
 					<div className="col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
 							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
-								{data?.titulo}
+								{translations.sectionBannerCaruselTitulo || data?.titulo}
 							</h2>
 						)}
 						{data?.descripcion && (
 							<div className="col-lg-10 m-auto">
 								<p className="text-gray fs-p">
-									{data?.descripcion}
+									{translations.sectionBannerCaruselDescripcion || data?.descripcion}
 								</p>
 							</div>
 						)}
