@@ -34,6 +34,8 @@ export default function Document() {
 				<meta name="msapplication-TileColor" content="#ffffff"/>
 				<meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
 				<meta name="theme-color" content="#ffffff"/>
+
+				<meta name="google-site-verification" content="RYwO9ks7Tv62I-dHVy0M-dbnf9cfKUiSw0JWX9bQkgA" />
 			</Head>
 			<body>
 				<Main />
