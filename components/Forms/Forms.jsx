@@ -60,7 +60,7 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 
 	return (
 		<section className="sectionForm py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-6 m-auto text-center pb-3">
 						<h2 className="fs-3">{translations.sectionFormTitulo || titulo}</h2>

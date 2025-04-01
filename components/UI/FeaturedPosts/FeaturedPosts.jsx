@@ -11,7 +11,7 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 export default function FeaturedPosts({ data, translations }) {
 	return (
 		<section className="sectionFeaturedPosts bg-white py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">{translations.sectionFeaturedPostsTitulo || 'Descubrir artículos'}</h2>
 				<div className="row">
 					{data?.posts?.nodes?.map((post, index) => (

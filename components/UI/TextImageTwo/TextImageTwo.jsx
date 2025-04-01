@@ -9,7 +9,7 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 export default function TextImageTwo({ data, translations }) {
 	return (
 		<section className="section sectionTextImageTwo bg-white-100 py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-6 mb-3 mb-lg-0">
 						<div className="col-lg-7">

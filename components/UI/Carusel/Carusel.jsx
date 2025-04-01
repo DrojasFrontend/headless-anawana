@@ -50,9 +50,9 @@ export default function Carusel({ data, translations }) {
 						"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-end pb-5 pb-lg-10",
 					])}
 				>
-					<div className="container">
+					<div className="container-fluit px-1">
 						{data?.titulo && (
-							<h1 className="fs-1 text-white text-uppercase fw-light">
+							<h1 className="fs-1 text-white text-uppercase fw-light mb-lg-0 mb-1">
 								{translations?.caruselTitulo || data?.titulo}
 							</h1>
 						)}

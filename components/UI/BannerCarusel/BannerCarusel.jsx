@@ -20,7 +20,7 @@ import slideIcon4 from "/public/icons/icon-img-4.png";
 export default function CardsCarusel({ data, translations }) {
 	return (
 		<section className="section sectionBannerCarusel bg-white pt-4 pt-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
@@ -39,7 +39,7 @@ export default function CardsCarusel({ data, translations }) {
 				</div>
 			</div>
 			<div className="pe-0 px-lg-4 pb-3">
-				<div className="container position-relative px-0 p-lg-1">
+				<div className="container-fluit px-1 position-relative px-0 p-lg-1">
 					<Swiper
 						modules={[Autoplay, Navigation, Pagination, EffectFade]}
 						spaceBetween={20}
@@ -85,32 +85,30 @@ export default function CardsCarusel({ data, translations }) {
 				</div>
 			</div>
 
-			<div className={cx(["bg", "bg-primary pt-xl-10 mt-xl-n10"])}>
-				<div className="py-4 py-xl-5">
-					<div className="container">
-						<div className="row">
-							{data?.items?.map((item, index) => (
-								<div className="col-sm-6 col-lg-3 mb-3 mb-lg-0" key={index}>
-									<div className={cx(["icon", "position-relative"])}>
-										<Image
-											src={item?.icono?.mediaItemUrl}
-											alt={item?.icono?.altText}
-											width={item?.icono?.mediaDetails?.width}
-											height={item?.icono?.mediaDetails?.height}
-										/>
-									</div>
-
-									{item?.titulo && (
-										<h3 className="font-secondary text-white text-center my-1">
-											{item?.titulo}
-										</h3>
-									)}
-									{item?.detalle && (
-										<p className="text-white text-center">{item?.detalle}</p>
-									)}
+			<div className={cx(["bg", "bg-primary py-lg-3 pt-3"])}>
+				<div className="container-fluit px-1">
+					<div className="row">
+						{data?.items?.map((item, index) => (
+							<div className="col-sm-6 col-lg-3 mb-3 mb-lg-0" key={index}>
+								<div className={cx(["icon", "position-relative"])}>
+									<Image
+										src={item?.icono?.mediaItemUrl}
+										alt={item?.icono?.altText}
+										width={item?.icono?.mediaDetails?.width}
+										height={item?.icono?.mediaDetails?.height}
+									/>
 								</div>
-							))}
-						</div>
+
+								{item?.titulo && (
+									<h3 className="font-secondary text-white text-center my-1">
+										{item?.titulo}
+									</h3>
+								)}
+								{item?.detalle && (
+									<p className="text-white text-center">{item?.detalle}</p>
+								)}
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

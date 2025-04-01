@@ -12,8 +12,8 @@ export default function Footer({ data, logo, redes }) {
 	}
 
 	return (
-		<footer className="bg-black-50 py-4 py-lg-6">
-			<div className="container">
+		<footer className="bg-primary py-4 py-lg-6">
+			<div className="container-fluit px-1">
 				<div className="row">
 					{/* Logo Section */}
 					<div className="col-xl-5 mb-3 mb-xl-0">

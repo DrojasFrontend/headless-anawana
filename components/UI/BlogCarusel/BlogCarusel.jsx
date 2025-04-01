@@ -50,7 +50,7 @@ export default function BlogCarusel({ data, translations }) {
 								"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-center",
 							])}
 						>
-							<div className="container">
+							<div className="container-fluit px-1">
 								<div className="row">
 									<div className="col-lg-7 m-auto">
 										{post?.title && (

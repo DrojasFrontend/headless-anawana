@@ -7,7 +7,7 @@ let cx = classNames.bind(styles);
 export default function TextImageOne({ data, translations }) {
 	return (
 		<section className="sectionTextGridImages bg-white-100 py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-9 m-auto">
 						<div className="text-center">

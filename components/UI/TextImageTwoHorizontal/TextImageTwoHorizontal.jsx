@@ -7,7 +7,7 @@ let cx = classNames.bind(styles);
 export default function TextImageOne({ data, translations }) {
 	return (
 		<section className="section sectionTextImageTwoHorizontal section bg-white-100 py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-4 mb-3 mb-lg-0">
 						{data?.titulo && (

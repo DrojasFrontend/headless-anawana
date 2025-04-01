@@ -123,6 +123,12 @@ a {
 		button {
 			@extend .text-primary;
 		}
+
+		svg {
+			path {
+				fill: #22376b;
+			}
+		}
 	}
 
 	a {

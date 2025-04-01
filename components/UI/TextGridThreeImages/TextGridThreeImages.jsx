@@ -7,7 +7,7 @@ let cx = classNames.bind(styles);
 export default function TextGridThreeImages({ data, translations }) {
 	return (
 		<section className="section sectionTextGridThreeImages bg-white py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-9 m-auto">
 						<div className="text-center">
@@ -32,7 +32,7 @@ export default function TextGridThreeImages({ data, translations }) {
 									width={imagen?.imagen?.mediaDetails?.width}
 									height={imagen?.imagen?.mediaDetails?.height}
 								/>
-								<div className="position-absolute bottom-0 p-1 z-1">
+								<div className="position-absolute bottom-0 w-100 p-1 z-1">
 									<h3 className="fs-6 text-white">{imagen.titulo}</h3>
 									<p className="fs-p text-white">{imagen.detalle}</p>
 								</div>

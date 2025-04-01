@@ -49,7 +49,7 @@ export default function Header({ data, logo }) {
 					scrolled ? "header-scrolled" : ""
 				}`}
 			>
-				<div className="container">
+				<div className="container-fluit px-1">
 					<nav className="row">
 						<div className="col-6 col-lg-2">
 							<Link href="/">
@@ -61,7 +61,9 @@ export default function Header({ data, logo }) {
 											width={250}
 											height={100}
 											objectFit="contain"
+											className="d-none d-lg-block"
 										/>
+										
 									</div>
 									<div className="logoSecundario">
 										<Image
@@ -70,7 +72,9 @@ export default function Header({ data, logo }) {
 											width={250}
 											height={100}
 											objectFit="contain"
+											className="d-none d-lg-block"
 										/>
+									
 									</div>
 								</a>
 							</Link>

@@ -16,7 +16,7 @@ import slidePrevNext from "/public/icons/icon-next-slide.svg";
 export default function CardsCarusel({ data, translations }) {
 	return (
 		<section className="section sectionCardsCarusel bg-white-100 py-4 py-lg-5">
-			<div className="container">
+			<div className="container-fluit px-1">
 				<div className="row">
 					<div className="col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
@@ -35,7 +35,7 @@ export default function CardsCarusel({ data, translations }) {
 				</div>
 			</div>
 			<div className="pe-0 px-lg-4 mb-3">
-				<div className="container position-relative px-0 p-lg-1">
+				<div className="container-fluit px-1 position-relative px-0 p-lg-1">
 					<Swiper
 						modules={[Autoplay, Navigation, Pagination, EffectFade]}
 						spaceBetween={20}
@@ -68,7 +68,7 @@ export default function CardsCarusel({ data, translations }) {
 										height={slide?.imagen?.mediaDetails?.height}
 										objectFit="cover"
 									/>
-									<div className="position-absolute bottom-0 p-1 z-1">
+									<div className="position-absolute bottom-0 w-100 p-1 z-1">
 										<h3 className="fs-6 text-white text-start">{slide.titulo}</h3>
 										<p className="fs-p text-white">{slide.descripcion}</p>
 									</div>
