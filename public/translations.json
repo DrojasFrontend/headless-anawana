@@ -4,8 +4,9 @@
       "inicio": "Home",
       "nosotros": "About",
       "contacto": "Contact us",
-      "reservar": "Reserve",
-      "blog": "Blog"
+      "reservar": "Book now",
+      "blog": "Blog",
+      "propiedades": "Properties"
     },
     "inicio": {
       "caruselTitulo": "Luxury Homes in Cartagena",
@@ -40,7 +41,8 @@
       "nosotros": "Nosotros",
       "contacto": "Contacto",
       "reservar": "Reservar",
-      "blog": "Blog"
+      "blog": "Blog",
+      "propiedades": "Propiedades"
     },
     "inicio": {
       "caruselTitulo": "Casas de lujo en Cartagena",
