@@ -88,7 +88,7 @@ export default function Header({ data, logo }) {
 											" "
 										)}`}
 									>
-										{(menuItem.cssClasses || []).includes("properties") ? (
+										{(menuItem.cssClasses || []).includes("reservar") ? (
 											<a
 												href={menuItem?.path}
 												className="button button-white"
