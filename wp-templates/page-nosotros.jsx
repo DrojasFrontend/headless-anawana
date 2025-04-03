@@ -59,11 +59,15 @@ Component.query = gql`
 			headerFooter {
 				grupoHeader {
 					logo {
-						altText
 						mediaItemUrl
 					}
 					logoHover {
-						altText
+						mediaItemUrl
+					}
+					logoMobile {
+						mediaItemUrl
+					}
+					logoMobileHover {
 						mediaItemUrl
 					}
 				}

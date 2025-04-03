@@ -65,10 +65,9 @@ Component.query = gql`
 					logoMobile {
 						mediaItemUrl
 					}
-					logoHoverMobile {
+					logoMobileHover {
 						mediaItemUrl
 					}
-					
 				}
 				grupoFooter {
 					menus {

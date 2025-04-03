@@ -5,11 +5,10 @@ import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
 import Hero from "../components/UI/Hero/Hero";
-import Forms from "../components/Forms/Forms";
 import Footer from "../components/Layout/Footer/Footer";
 
 export default function Component(props) {
-	const { translations } = useTranslation("contacto");
+	const { translations } = useTranslation("propiedades");
 	const { data } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
@@ -21,9 +20,8 @@ export default function Component(props) {
 	});
 
 	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
-	const mostrarHero = data?.page?.paginaContacto?.mostrarHero;
-	const grupoHero = data?.page?.paginaContacto?.grupoHero;
-	const tituloContacto = data?.page?.paginaContacto?.grupoFormulario?.titulo;
+	const mostrarHero = data?.page?.paginaPropiedades?.mostrarHero;
+	const grupoHero = data?.page?.paginaPropiedades?.grupoHero;
 	const grupoConfiguracionTemaRedes =
 	data?.themeGeneralSettings?.configuracionTema?.grupoSocial.redes;
 	const grupoConfiguracionTemaContactos =
@@ -36,12 +34,6 @@ export default function Component(props) {
 		<div>
 			<Header data={menuData} logo={logo} />
 			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
-			<Forms
-				titulo={tituloContacto}
-				redes={grupoConfiguracionTemaRedes}
-				contactos={grupoConfiguracionTemaContactos}
-				translations={translations}
-			/>
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</div>
 	);
@@ -116,21 +108,18 @@ Component.query = gql`
 			}
 		}
 		page(id: $id, idType: DATABASE_ID) {
-			paginaContacto {
+			paginaPropiedades {
 				mostrarHero
 				grupoHero {
 					titulo
 					imagen {
-						altText
-						mediaItemUrl
+					altText
+					mediaItemUrl
 						mediaDetails {
 							height
 							width
 						}
 					}
-				}
-				grupoFormulario {
-					titulo
 				}
 			}
 		}
@@ -153,6 +142,6 @@ const GET_MENUS = gql`
 
 Component.variables = () => {
 	return {
-		id: "2512",
+		id: "2653",
 	};
 };
