@@ -22,14 +22,14 @@ const LanguageSwitcher = () => {
 	};
 
 	return (
-		<div className="px-2">
+		<div className="LanguageSwitcher px-2">
 			{isSpanish ? (
-				<button className="d-flex align-items-center bg-transparent border-0 text-white gap-1 p-0" onClick={() => handleLanguageSwitch("en")}>
+				<button className="d-flex align-items-center bg-transparent border-0 gap-1 p-0" onClick={() => handleLanguageSwitch("en")}>
 					EN
 					<Image src={flagUsa} alt="Flag of Colombia" width={20} height={20} />
 				</button>
 			) : (
-				<button className="d-flex align-items-center bg-transparent border-0 text-white gap-1 p-0" onClick={() => handleLanguageSwitch("es")}>
+				<button className="d-flex align-items-center bg-transparent border-0 gap-1 p-0" onClick={() => handleLanguageSwitch("es")}>
 					ES
 					<Image src={flagColombia} alt="Flag of Colombia" width={20} height={20} />
 				</button>

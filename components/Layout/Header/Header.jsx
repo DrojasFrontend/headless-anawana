@@ -86,7 +86,7 @@ export default function Header({ data, logo }) {
 										</div>
 										<div className="d-lg-none">
 											<Image
-												src={logo?.logoHoverMobile?.mediaItemUrl}
+												src={logo?.logoMobileHover?.mediaItemUrl}
 												alt="Logo anawana"
 												width={250}
 												height={100}
