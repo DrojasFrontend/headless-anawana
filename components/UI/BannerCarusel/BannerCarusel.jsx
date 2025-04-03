@@ -42,8 +42,8 @@ export default function CardsCarusel({ data, translations }) {
 				<div className="container-fluit px-1 position-relative px-0 p-lg-1">
 					<Swiper
 						modules={[Autoplay, Navigation, Pagination, EffectFade]}
-						spaceBetween={20}
-						slidesPerView= {1.3}
+						spaceBetween={10}
+						slidesPerView= {1.1}
 						autoplay={{
 							delay: 2500,
 							disableOnInteraction: false,

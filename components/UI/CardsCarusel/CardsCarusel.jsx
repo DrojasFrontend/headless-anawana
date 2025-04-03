@@ -39,7 +39,7 @@ export default function CardsCarusel({ data, translations }) {
 					<Swiper
 						modules={[Autoplay, Navigation, Pagination, EffectFade]}
 						spaceBetween={20}
-						slidesPerView= {1.3}
+						slidesPerView= {1.1}
 						breakpoints={{
 							1024: {
 								slidesPerView: 2,

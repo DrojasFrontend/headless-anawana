@@ -23,7 +23,7 @@ export default function MenuMobile({ isOpen, data, logo, onClose }) {
       >
         <IconClose />
       </button>
-      <ul className="d-flex flex-column pt-5 px-2 justify-content-lg-around align-middle w-100 h-100">
+      <ul className="d-flex flex-column pt-5 px-2 justify-content-lg-around align-middle w-100">
         {data?.headerMenuItems.nodes?.map((menuItem, index) => (
           <li
             key={index}
@@ -59,6 +59,7 @@ export default function MenuMobile({ isOpen, data, logo, onClose }) {
           </li>
         ))}
       </ul>
+      <LanguageSwitcher />
     </section>
   );
 }

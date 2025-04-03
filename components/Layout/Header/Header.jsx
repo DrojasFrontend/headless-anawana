@@ -31,50 +31,69 @@ export default function Header({ data, logo }) {
 	const menuTranslations = translations?.[language]?.menu || {};
 
 	const getTranslatedMenuLabel = (menuItem) => {
-    let path = menuItem.path.replace(/^\/|\/$/g, "");
-    
-    if (path === "") path = "inicio";
-    else if (path === "#") path = "reservar";
-    
-    const translation = menuTranslations[path];
-    if (translation) return translation;
-    
-    return menuItem.label;
-  };
+		let path = menuItem.path.replace(/^\/|\/$/g, "");
+
+		if (path === "") path = "inicio";
+		else if (path === "#") path = "reservar";
+
+		const translation = menuTranslations[path];
+		if (translation) return translation;
+
+		return menuItem.label;
+	};
 
 	return (
 		<>
 			<header
-				className={`header position-fixed w-100 z-2 py-lg-1 ${
-					scrolled ? "header-scrolled" : ""
-				}`}
+				className={`header position-fixed w-100 z-2 py-lg-1 ${scrolled ? "header-scrolled" : ""
+					}`}
 			>
 				<div className="container-fluit px-1">
 					<nav className="row">
 						<div className="col-6 col-lg-2">
 							<Link href="/">
-								<a className="d-flex justify-content-center align-items-center h-100 position-relative">
+								<a className="d-flex justify-content-start align-items-star h-100 position-relative">
 									<div className="logo">
-										<Image
-											src={logo?.logo?.mediaItemUrl}
-											alt={logo?.logo?.mediaItemUrl?.altText}
-											width={250}
-											height={100}
-											objectFit="contain"
-											className="d-none d-lg-block"
-										/>
-										
+										<div className="d-none d-lg-block top-1">
+											<Image
+												src={logo?.logo?.mediaItemUrl}
+												alt="Logo anawana"
+												width={200}
+												height={80}
+												objectFit="contain"
+											/>
+										</div>
+										<div className="d-lg-none">
+											<Image
+												src={logo?.logoMobile?.mediaItemUrl}
+												alt="Logo anawana"
+												width={200}
+												height={50}
+												objectFit="contain"
+											/>
+										</div>
 									</div>
 									<div className="logoSecundario">
-										<Image
-											src={logo?.logoHover?.mediaItemUrl}
-											alt={logo?.logoHover?.mediaItemUrl?.altText}
-											width={250}
-											height={100}
-											objectFit="contain"
-											className="d-none d-lg-block"
-										/>
-									
+										<div className="d-none d-lg-block">
+
+											<Image
+												src={logo?.logoHover?.mediaItemUrl}
+												alt="Logo anawana"
+												width={200}
+												height={80}
+												objectFit="contain"
+											/>
+										</div>
+										<div className="d-lg-none">
+											<Image
+												src={logo?.logoHoverMobile?.mediaItemUrl}
+												alt="Logo anawana"
+												width={250}
+												height={100}
+												objectFit="contain"
+											/>
+										</div>
+
 									</div>
 								</a>
 							</Link>
@@ -95,7 +114,7 @@ export default function Header({ data, logo }) {
 												target={menuItem?.target}
 											>
 												<span className="line line-white d-flex justify-content-center align-items-center">
-                          {getTranslatedMenuLabel(menuItem)}
+													{getTranslatedMenuLabel(menuItem)}
 													<span className="line-white-top"></span>
 													<span className="line-white-right"></span>
 													<span className="line-white-bottom"></span>
@@ -104,9 +123,9 @@ export default function Header({ data, logo }) {
 											</a>
 										) : (
 											<Link href={menuItem?.path}>
-                      <a className="d-flex align-items-center text-white text-uppercase">
-                        {getTranslatedMenuLabel(menuItem)}
-                      </a>
+												<a className="d-flex align-items-center text-white text-uppercase">
+													{getTranslatedMenuLabel(menuItem)}
+												</a>
 											</Link>
 										)}
 									</li>

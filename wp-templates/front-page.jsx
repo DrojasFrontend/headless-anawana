@@ -36,8 +36,6 @@ export default function Component(props) {
 	const redes =
 		data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redesBlanco;
 
-		console.log("logo", data?.themeGeneralSettings?.headerFooter)
-
 	return (
 		<div>
 			<Header data={menuData} logo={logo} translations={translations} />
@@ -59,11 +57,15 @@ Component.query = gql`
 			headerFooter {
 				grupoHeader {
 					logo {
-						altText
 						mediaItemUrl
 					}
 					logoHover {
-						altText
+						mediaItemUrl
+					}
+					logoMobile {
+						mediaItemUrl
+					}
+					logoHoverMobile {
 						mediaItemUrl
 					}
 					

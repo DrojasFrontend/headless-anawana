@@ -145,13 +145,21 @@ a {
 }
 
 .logo {
+	padding-top: rem(14);
 	transition: all 0.4s ease;
+	@media only screen and (min-width: 1024px) {
+		padding-top: rem(0);
+		margin-left: rem(-30);
+	}
 	&Secundario {
 		position: absolute;
 		top: 0;
 		left: 0;
 		opacity: 0;
 		transition: all 0.4s ease;
+		@media only screen and (min-width: 1024px) {
+			left: rem(-30);
+		}
 	}
 }
 

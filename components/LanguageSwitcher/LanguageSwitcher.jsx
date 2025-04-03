@@ -1,5 +1,9 @@
 import { useLanguage } from "../../context/LanguageContext";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+
+import flagColombia from "/public/icons/flag-colombia.png";
+import flagUsa from "/public/icons/flag-estados-unidos.png";
 
 const LanguageSwitcher = () => {
 	const languageContext = useLanguage();
@@ -18,11 +22,17 @@ const LanguageSwitcher = () => {
 	};
 
 	return (
-		<div>
+		<div className="px-2">
 			{isSpanish ? (
-				<button className="bg-transparent border-0 text-white" onClick={() => handleLanguageSwitch("en")}>EN 🇺🇸</button>
+				<button className="d-flex align-items-center bg-transparent border-0 text-lg-white text-primary gap-1 p-0" onClick={() => handleLanguageSwitch("en")}>
+					EN
+					<Image src={flagUsa} alt="Flag of Colombia" width={20} height={20} />
+				</button>
 			) : (
-				<button className="bg-transparent border-0 text-white" onClick={() => handleLanguageSwitch("es")}>ES 🇨🇴</button>
+				<button className="d-flex align-items-center bg-transparent border-0 text-lg-white text-primary gap-1 p-0" onClick={() => handleLanguageSwitch("es")}>
+					ES
+					<Image src={flagColombia} alt="Flag of Colombia" width={20} height={20} />
+				</button>
 			)}
 		</div>
 	);

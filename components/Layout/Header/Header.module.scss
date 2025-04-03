@@ -1,1 +1,14 @@
-.logo {}
+@import "styles/breakpoints";
+@import "styles/mixin";
+
+.logo {
+    @media only screen and (min-width: 1024px) {
+        left: rem(-30);
+    }
+}
+
+.logoSecundario {
+    @media only screen and (min-width: 1024px) {
+        left: rem(-30);
+    }
+}
