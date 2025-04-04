@@ -47,12 +47,12 @@ export default function BlogCarusel({ data, translations }) {
 						<div
 							className={cx([
 								"content",
-								"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-center",
+								"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex justify-content-center align-items-center",
 							])}
 						>
 							<div className="container-fluit px-1">
 								<div className="row">
-									<div className="col-lg-7 m-auto">
+									<div className="col-lg-7 m-auto text-center">
 										{post?.title && (
 											<h1 className="fs-2 text-white text-center text-uppercase fw-light mb-1">
 												{post?.title}

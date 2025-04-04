@@ -12,7 +12,7 @@ let cx = classNames.bind(styles);
 import { useLanguage } from "../../../context/LanguageContext";
 import translations from "../../../public/translations.json";
 
-export default function Header({ data, logo }) {
+export default function Header({ data, logo, className }) {
 	const [scrolled, setScrolled] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -46,7 +46,7 @@ export default function Header({ data, logo }) {
 		<>
 			<header
 				className={`header position-fixed w-100 z-2 py-lg-1 ${scrolled ? "header-scrolled" : ""
-					}`}
+					} ${className || ''}`}
 			>
 				<div className="container-fluit px-1">
 					<nav className="row">

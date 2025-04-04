@@ -4,6 +4,7 @@ import contacto from './page-contacto';
 import propiedades from './page-propiedades';
 import blog from './page-blog';
 import page from './page';
+import single from './single';
 
 export default {
   'front-page': frontPage,
@@ -12,4 +13,5 @@ export default {
   'page-propiedades': propiedades,
   'page-blog': blog,
   page,
+  single,
 };

@@ -1,0 +1,25 @@
+@import "/styles/mixin";
+
+.breadcrumbs {
+	list-style: none;
+	display: flex;
+
+	li {
+		font-size: rem(14);
+		margin-right: 5px;
+		&:after {
+			content: "/";
+			margin-left: 5px;
+		}
+
+		&:last-child {
+			&:after {
+				content: "";
+			}
+		}
+
+    a {
+      text-transform: capitalize;
+    }
+	}
+}
