@@ -7,7 +7,6 @@ let cx = classNames.bind(styles);
 import placeholderImg from "../../../public/img/1259x1500.svg";
 
 export default function Propiedades({ data, allCategories, activeTab, setActiveTab, translations }) {
-    console.log(setActiveTab);
     return (
         <section className="pt-4 pt-lg-5 ">
             {!data || !allCategories ? (
@@ -33,12 +32,12 @@ export default function Propiedades({ data, allCategories, activeTab, setActiveT
                                             : ''
                                             }`}
                                     >
-                                        <span class="line line-white d-flex justify-content-center align-items-center">
+                                        <span className="line line-white d-flex justify-content-center align-items-center">
                                             Todas las propiedades
-                                            <span class="line-black-top"></span>
-                                            <span class="line-black-right"></span>
-                                            <span class="line-black-bottom"></span>
-                                            <span class="line-black-left"></span>
+                                            <span className="line-black-top"></span>
+                                            <span className="line-black-right"></span>
+                                            <span className="line-black-bottom"></span>
+                                            <span className="line-black-left"></span>
                                         </span>
                                     </button>
                                     {allCategories.map((categoria) => (
@@ -50,12 +49,12 @@ export default function Propiedades({ data, allCategories, activeTab, setActiveT
                                                 : ''
                                                 }`}
                                         >
-                                            <span class="line line-white d-flex justify-content-center align-items-center">
+                                            <span className="line line-white d-flex justify-content-center align-items-center">
                                                 {categoria.name}
-                                                <span class="line-black-top"></span>
-                                                <span class="line-black-right"></span>
-                                                <span class="line-black-bottom"></span>
-                                                <span class="line-black-left"></span>
+                                                <span className="line-black-top"></span>
+                                                <span className="line-black-right"></span>
+                                                <span className="line-black-bottom"></span>
+                                                <span className="line-black-left"></span>
                                             </span>
                                         </button>
                                     ))}

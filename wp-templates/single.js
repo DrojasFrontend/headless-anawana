@@ -132,7 +132,6 @@ export default function Component(props) {
 	const grupoFooter = themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes = themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
 
-	console.log(themeGeneralSettings);
 	return (
 		<div>
 			<Header data={menuData} logo={logo} className="customHeaderBlue" />

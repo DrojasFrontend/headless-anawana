@@ -70,7 +70,7 @@ export default function CardsCarusel({ data, translations }) {
 									/>
 									<div className="position-absolute bottom-0 w-100 p-1 z-1">
 										<h3 className="fs-6 text-white text-start">{slide.titulo}</h3>
-										<p className="fs-p text-white">{slide.descripcion}</p>
+										<p className="fs-p text-white text-start">{slide.descripcion}</p>
 									</div>
 								</div>
 							</SwiperSlide>

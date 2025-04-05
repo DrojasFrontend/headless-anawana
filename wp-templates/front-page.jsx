@@ -211,16 +211,28 @@ export default function Component(props) {
 	const [activeTab, setActiveTab] = useState('all');
 
 	// Agregar esta nueva consulta junto a las otras
-	const { data: themeData } = useQuery(THEME_SETTINGS_QUERY);
-	const { data: pageData } = useQuery(PAGE_QUERY, {
+	const { data: themeData, loading: themeLoading } = useQuery(THEME_SETTINGS_QUERY);
+	const { data: pageData, loading: pageLoading } = useQuery(PAGE_QUERY, {
 		variables: { id: "15" },
 	});
-	const { data: menuData } = useQuery(GET_MENUS, {
+	const { data: menuData, loading: menuLoading } = useQuery(GET_MENUS, {
 		variables: {
 			headerLocation: MENUS.PRIMARY_LOCATION,
 		},
 	});
-	const { data: propertiesData } = useQuery(PROPERTIES_QUERY);
+	const { data: propertiesData, loading: propertiesLoading } = useQuery(PROPERTIES_QUERY);
+
+	// Verificar si alguna consulta aún está cargando
+	const isLoading = themeLoading || pageLoading || menuLoading || propertiesLoading;
+
+	// Si los datos aún están cargando, puedes mostrar un indicador de carga o retornar null
+	if (isLoading) {
+		return (
+			<div className="loading-container">
+				<div className="loading-spinner"></div>
+			</div>
+		);
+	}
 
 	const logo = themeData?.themeGeneralSettings?.headerFooter?.grupoHeader;
 	const mostrarCarusel = pageData?.page?.paginaInicio?.mostrar;
@@ -236,7 +248,6 @@ export default function Component(props) {
 
 	// Agregar esta constante con las propiedades
 	const propiedades = propertiesData?.propiedades?.nodes || [];
-	console.log(propiedades);
 
 	// Obtener todas las categorías únicas de las propiedades
 	const allCategories = propiedades.reduce((cats, propiedad) => {

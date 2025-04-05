@@ -33,8 +33,8 @@ export default function TextGridThreeImages({ data, translations }) {
 									height={imagen?.imagen?.mediaDetails?.height}
 								/>
 								<div className="position-absolute bottom-0 w-100 p-1 z-1">
-									<h3 className="fs-6 text-white">{imagen.titulo}</h3>
-									<p className="fs-p text-white">{imagen.detalle}</p>
+									<h3 className="fs-6 text-white text-start">{imagen.titulo}</h3>
+									<p className="fs-p text-white text-start">{imagen.detalle}</p>
 								</div>
 							</div>
 						</div>
