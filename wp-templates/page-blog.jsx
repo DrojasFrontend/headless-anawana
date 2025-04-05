@@ -8,25 +8,42 @@ import BlogCarusel from "../components/UI/BlogCarusel/BlogCarusel";
 import BlogCaruselTwoSlides from "../components/UI/BlogCaruselTwoSlides/BlogCaruselTwoSlides";
 import FeaturedPosts from "../components/UI/FeaturedPosts/FeaturedPosts";
 import Footer from "../components/Layout/Footer/Footer";
+import Loading from "../components/UI/Loading/Loading";
 
 export default function Component() {
 	const { translations } = useTranslation("blog");
-	const { data } = useQuery(Component.query, {
+	const { data, loading: generalLoading } = useQuery(Component.query, {
 		variables: Component.variables(),
 	});
 
-	const { data: menuData } = useQuery(GET_MENUS, {
+	const { data: menuData, loading: menuLoading } = useQuery(GET_MENUS, {
 		variables: {
 			headerLocation: MENUS.PRIMARY_LOCATION,
 		},
 	});
 
-	const { data: firstTwo } = useQuery(GET_FIRST_POSTS);
-	const { data: nextFive } = useQuery(GET_NEXT_POSTS);
-	const { data: random } = useQuery(GET_RANDOM_POSTS);
+	const { data: firstTwo, loading: firstTwoLoading } = useQuery(GET_FIRST_POSTS);
+	const { data: nextFive, loading: nextFiveLoading } = useQuery(GET_NEXT_POSTS);
+	const { data: random, loading: randomLoading } = useQuery(GET_RANDOM_POSTS);
+
+	// Verificar cada consulta por separado para carga progresiva
+	const headerReady = menuData && data;
+	const firstCarouselReady = firstTwo;
+	const secondCarouselReady = nextFive && data?.page?.paginaBlog;
+	const featuredPostsReady = random;
+
+	// Si no hay datos del header todavía, mostrar un spinner mínimo
+	if (!headerReady) {
+		return <Loading fullPage={true} />;
+	}
 
 	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
+	const mostrarCarusel = data?.page?.paginaBlog?.mostrarCarusel;
+	const grupoCarusel = data?.page?.paginaBlog?.grupoCarusel;
+	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
+	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
 
+	// Preparar datos aleatorizados solo si están disponibles
 	const randomizedData = random
 		? {
 				posts: {
@@ -36,22 +53,28 @@ export default function Component() {
 		  }
 		: null;
 
-	const mostrarCarusel = data?.page?.paginaBlog?.mostrarCarusel;
-	const grupoCarusel = data?.page?.paginaBlog?.grupoCarusel;
-
-	if (!firstTwo || !nextFive || !random) return null;
-
-	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
-	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
-
 	return (
 		<>
 			<Header data={menuData} logo={logo} />
-			<BlogCarusel data={firstTwo} translations={translations} />
-			{mostrarCarusel && (
+			
+			{!firstCarouselReady ? (
+				<Loading minHeight="50vh" />
+			) : (
+				<BlogCarusel data={firstTwo} translations={translations} />
+			)}
+			
+			{mostrarCarusel && !secondCarouselReady ? (
+				<Loading minHeight="40vh" />
+			) : mostrarCarusel && (
 				<BlogCaruselTwoSlides data={nextFive} grupoCarusel={grupoCarusel} translations={translations} />
 			)}
-			<FeaturedPosts data={randomizedData} translations={translations} />
+			
+			{!featuredPostsReady ? (
+				<Loading minHeight="30vh" />
+			) : (
+				<FeaturedPosts data={randomizedData} translations={translations} />
+			)}
+			
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</>
 	);

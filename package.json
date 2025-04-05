@@ -20,6 +20,7 @@
     "@wordpress/block-library": "^7.19.0",
     "bootstrap": "^5.3.3",
     "classnames": "^2.3.1",
+    "cross-fetch": "^4.1.0",
     "dompurify": "^3.2.5",
     "graphql": "^16.6.0",
     "next": "^12.1.6",

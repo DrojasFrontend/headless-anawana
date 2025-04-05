@@ -10,6 +10,7 @@ import Propiedades from "../components/UI/Propiedades/Propiedades";
 import BannerCarusel from "../components/UI/BannerCarusel/BannerCarusel";
 import TextGridThreeImages from "../components/UI/TextGridThreeImages/TextGridThreeImages";
 import Footer from "../components/Layout/Footer/Footer";
+import Loading from "../components/UI/Loading/Loading";
 import Image from "next/image";
 // Fragmentos para mejor organización
 const HEADER_FOOTER_FRAGMENT = gql`
@@ -222,42 +223,34 @@ export default function Component(props) {
 	});
 	const { data: propertiesData, loading: propertiesLoading } = useQuery(PROPERTIES_QUERY);
 
-	// Verificar si alguna consulta aún está cargando
-	const isLoading = themeLoading || pageLoading || menuLoading || propertiesLoading;
+	// Verificar cada consulta por separado para carga progresiva
+	const headerReady = menuData && themeData;
+	const contentReady = pageData;
+	const propiedadesReady = propertiesData;
 
-	// Si los datos aún están cargando, puedes mostrar un indicador de carga o retornar null
-	if (isLoading) {
-		return (
-			<div className="loading-container">
-				<div className="loading-spinner"></div>
-			</div>
-		);
+	// Si no hay datos del header todavía, mostrar un spinner mínimo
+	if (!headerReady) {
+		return <Loading fullPage={true} />;
 	}
 
 	const logo = themeData?.themeGeneralSettings?.headerFooter?.grupoHeader;
-	const mostrarCarusel = pageData?.page?.paginaInicio?.mostrar;
-	const mostrarGaleria = pageData?.page?.paginaInicio?.mostrarGaleria;
-	const mostrarGaleriaGrande = pageData?.page?.paginaInicio?.mostrarGaleriaGrande;
-	const mostrarTextoImagenes = pageData?.page?.paginaInicio?.mostrarTextoImagenes;
-	const dataSlide = pageData?.page?.paginaInicio?.grupoHeroSlider;
-	const dataGaleria = pageData?.page?.paginaInicio?.grupoGaleria;
-	const dataGaleriaGrande = pageData?.page?.paginaInicio?.grupoGaleriaGrande;
-	const dataTextoImagenes = pageData?.page?.paginaInicio?.grupoTextoImagenes;
-	const grupoFooter = themeData?.themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes = themeData?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redesBlanco;
+	const grupoFooter = themeData?.themeGeneralSettings?.headerFooter?.grupoFooter;
 
-	// Agregar esta constante con las propiedades
+	// Propiedades con fallback para evitar errores mientras cargan
 	const propiedades = propertiesData?.propiedades?.nodes || [];
-
-	// Obtener todas las categorías únicas de las propiedades
-	const allCategories = propiedades.reduce((cats, propiedad) => {
-		propiedad.categoriasDePropiedades.nodes.forEach(cat => {
-			if (!cats.some(existingCat => existingCat.id === cat.id)) {
-				cats.push(cat);
-			}
-		});
-		return cats;
-	}, []);
+	
+	// Obtener todas las categorías únicas solo si los datos están disponibles
+	const allCategories = propiedadesReady 
+		? propiedades.reduce((cats, propiedad) => {
+			propiedad.categoriasDePropiedades.nodes.forEach(cat => {
+				if (!cats.some(existingCat => existingCat.id === cat.id)) {
+					cats.push(cat);
+				}
+			});
+			return cats;
+		}, [])
+		: [];
 
 	// Filtrar propiedades según la categoría seleccionada
 	const propiedadesFiltradas = activeTab === 'all'
@@ -266,16 +259,43 @@ export default function Component(props) {
 			propiedad.categoriasDePropiedades.nodes.some(cat => cat.slug === activeTab)
 		);
 
+	// Variables condicionales para contenido
+	const mostrarCarusel = contentReady && pageData?.page?.paginaInicio?.mostrar;
+	const mostrarGaleria = contentReady && pageData?.page?.paginaInicio?.mostrarGaleria;
+	const mostrarGaleriaGrande = contentReady && pageData?.page?.paginaInicio?.mostrarGaleriaGrande;
+	const mostrarTextoImagenes = contentReady && pageData?.page?.paginaInicio?.mostrarTextoImagenes;
+	const dataSlide = contentReady ? pageData?.page?.paginaInicio?.grupoHeroSlider : null;
+	const dataGaleria = contentReady ? pageData?.page?.paginaInicio?.grupoGaleria : null;
+	const dataGaleriaGrande = contentReady ? pageData?.page?.paginaInicio?.grupoGaleriaGrande : null;
+	const dataTextoImagenes = contentReady ? pageData?.page?.paginaInicio?.grupoTextoImagenes : null;
+
 	return (
 		<div>
 			<Header data={menuData} logo={logo} translations={translations} />
+			
+			{!contentReady && <Loading minHeight="50vh" />}
+			
 			{mostrarCarusel && (
 				<Carusel data={dataSlide} translations={translations} />
 			)}
+			
 			{mostrarGaleria && <CardsCarusel data={dataGaleria} translations={translations} />}
-			<Propiedades data={propiedadesFiltradas} allCategories={allCategories} activeTab={activeTab} setActiveTab={setActiveTab} translations={translations} />
+			
+			{!propiedadesReady ? (
+				<Loading minHeight="30vh" />
+			) : (
+				<Propiedades 
+					data={propiedadesFiltradas} 
+					allCategories={allCategories} 
+					activeTab={activeTab} 
+					setActiveTab={setActiveTab} 
+					translations={translations} 
+				/>
+			)}
+			
 			{mostrarGaleriaGrande && <BannerCarusel data={dataGaleriaGrande} translations={translations} />}
 			{mostrarTextoImagenes && <TextGridThreeImages data={dataTextoImagenes} translations={translations} />}
+			
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 		</div>
 	);
