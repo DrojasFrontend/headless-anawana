@@ -292,11 +292,13 @@ p {
 .button {
 	font-family: $font-family-base;
 	display: flex;
+	justify-content: center;
 	text-align: center;
 	width: rem(250);
 	padding: rem(3);
 	letter-spacing: 2px;
 	cursor: pointer;
+	background-color: transparent;
 	@extend .fs-p, .text-uppercase;
 
 	&:hover {

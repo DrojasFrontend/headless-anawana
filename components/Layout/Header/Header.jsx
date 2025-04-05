@@ -88,8 +88,8 @@ export default function Header({ data, logo, className }) {
 											<Image
 												src={logo?.logoMobileHover?.mediaItemUrl}
 												alt="Logo anawana"
-												width={250}
-												height={100}
+												width={200}
+												height={70}
 												objectFit="contain"
 											/>
 										</div>
