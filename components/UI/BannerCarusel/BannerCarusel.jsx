@@ -30,7 +30,7 @@ export default function CardsCarusel({ data, translations }) {
 						<div className="row pt-2">
 							{data?.items?.map((item, index) => (
 								<div className="col-12 col-lg-6 mb-1" key={index}>
-									<div className={cx(["item", "shadow"])}>
+									<div className={cx(["item", "shadow p-1"])}>
 										<div className={cx(["icon","position-relative"])}>
 											<Image
 												src={item?.icono?.mediaItemUrl}
@@ -39,14 +39,14 @@ export default function CardsCarusel({ data, translations }) {
 												height={item?.icono?.mediaDetails?.height}
 											/>
 										</div>
-										<div className="py-1 pe-1">
+										<div className="d-flex flex-column justify-content-center">
 											{item?.titulo && (
-												<h3 className="font-secondary fs-medium text-gray text-left mb-1">
+												<h3 className="font-secondary fs-medium text-gray text-left">
 													{item?.titulo}
 												</h3>
 											)}
 											{item?.detalle && (
-												<p className={cx(["text", "text-gray", "text-left"])}>{item?.detalle}</p>
+												<p className={cx(["text", "text-gray", "text-left mt-1"])}>{item?.detalle}</p>
 											)}
 										</div>
 									</div>
