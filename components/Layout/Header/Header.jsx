@@ -103,7 +103,7 @@ export default function Header({ data, logo, className }) {
 								{data?.headerMenuItems.nodes?.map((menuItem, index) => (
 									<li
 										key={index}
-										className={`d-flex justify-content-lg-center align-content-center ${menuItem.cssClasses?.join(
+										className={`d-flex justify-content-lg-center align-content-center font-secondary ${menuItem.cssClasses?.join(
 											" "
 										)}`}
 									>
@@ -123,7 +123,7 @@ export default function Header({ data, logo, className }) {
 											</a>
 										) : (
 											<Link href={menuItem?.path}>
-												<a className="d-flex align-items-center text-white text-uppercase">
+												<a className="d-flex align-items-center text-white text-uppercase font-secondary">
 													{getTranslatedMenuLabel(menuItem)}
 												</a>
 											</Link>

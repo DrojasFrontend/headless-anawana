@@ -24,7 +24,7 @@ export default function Hero({ data, translations }) {
 			>
 				<div className="col-lg-7">
 					{data.titulo && (
-						<h1 className="fs-1 text-white text-center text-uppercase fw-light px-2">
+						<h1 className="fs-1 text-white text-center fw-light px-2">
 							{translations.sectionHeroTitulo || data.titulo}
 						</h1>
 					)}

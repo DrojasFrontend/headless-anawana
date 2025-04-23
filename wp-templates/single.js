@@ -11,6 +11,7 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import ContentWrapper from "../components/ContentWrapper/ContentWrapper";
 import FormatDate from "../components/FormatDate/FormatDate";
 import Footer from "../components/Layout/Footer/Footer";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 
 const GET_POST_QUERY = gql`
 	query GetPost($databaseId: ID!, $asPreview: Boolean = false) {
@@ -63,6 +64,18 @@ const GET_POST_QUERY = gql`
 						}
 						icono {
 							mediaItemUrl
+						}
+					}
+				}
+				grupoMenuMobile {
+					menu {
+						icono {
+							mediaItemUrl
+						}
+						cta {
+							target
+							title
+							url
 						}
 					}
 				}
@@ -131,6 +144,7 @@ export default function Component(props) {
 	const logo = themeGeneralSettings?.headerFooter?.grupoHeader;
 	const grupoFooter = themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes = themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+	const menuMobile = themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	return (
 		<div>
@@ -140,7 +154,7 @@ export default function Component(props) {
 					<div className="sectionDetailPost__grid">
 						<section>
 							<Breadcrumbs />
-							<h1 className="fs-2 text-primary fw-semibold my-1">{title}</h1>
+							<h1 className="fs-2 text-primary font-secondary fw-semibold my-1">{title}</h1>
 							<div className="sectionDetailPost__img">
 								{featuredImage?.node?.sourceUrl && (
 									<Image
@@ -210,6 +224,7 @@ export default function Component(props) {
 				</Container>
 			</div>
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
 	);
 }

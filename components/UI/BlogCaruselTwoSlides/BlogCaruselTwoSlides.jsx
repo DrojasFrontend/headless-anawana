@@ -14,13 +14,14 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 export default function BlogCarusel({ data, grupoCarusel, translations }) {
+	console.log("BlogCaruselTwoSlides data:", data);
 	return (
 		<section className="sectionBlogCaruselTwoSlides bg-white-100 py-4 py-lg-5">
 			<div className="px-1">
 				<div className="row">
 					<div className="col-xl-3 mb-3">
 						{grupoCarusel.titulo && (
-							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
+							<h2 className="font-base fs-2 fw-light mb-1">
 								{translations.sectionBlogCaruselTwoSlidesTitulo || grupoCarusel.titulo}
 							</h2>
 						)}
@@ -28,7 +29,7 @@ export default function BlogCarusel({ data, grupoCarusel, translations }) {
 						{grupoCarusel.descripcion && (
 							<p className="text-gray mb-3">{translations.sectionBlogCaruselTwoSlidesDescripcion || grupoCarusel.descripcion}</p>
 						)}
-						
+
 						<div className="col-1 position-relative m-auto">
 							<div className="swiper-button-prev">
 							</div>
@@ -67,13 +68,15 @@ export default function BlogCarusel({ data, grupoCarusel, translations }) {
 							{data?.posts?.nodes?.map((post, index) => (
 								<SwiperSlide key={index}>
 									<div className={cx(["slide", "position-relative text-center"])}>
-										<Image
-											src={post?.featuredImage?.node?.sourceUrl}
-											alt={post?.title}
-											width={500}
-											height={600}
-											objectFit="cover"
-										/>
+										<a href={`/${post.slug}`}>
+											<Image
+												src={post?.featuredImage?.node?.sourceUrl}
+												alt={post?.title}
+												width={500}
+												height={600}
+												objectFit="cover"
+											/>
+										</a>
 									</div>
 								</SwiperSlide>
 							))}

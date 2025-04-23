@@ -26,7 +26,7 @@ export default function Carusel({ data, translations }) {
 				fadeEffect={{
 					crossFade: true,
 				}}
-				navigation
+				navigation={false}
 				pagination={{ clickable: true }}
 				className="mySwiper"
 			>
@@ -47,12 +47,12 @@ export default function Carusel({ data, translations }) {
 				<div
 					className={cx([
 						"content",
-						"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-end pb-5 pb-lg-10",
+						"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-end py-3",
 					])}
 				>
-					<div className="container-fluit px-1">
+					<div className="container-fluit px-1 m-auto text-center">
 						{data?.titulo && (
-							<h1 className="fs-1 text-white text-uppercase fw-light mb-lg-0 mb-1">
+							<h1 className="fs-1 text-white fw-light mb-lg-0 mb-1">
 								{translations?.caruselTitulo || data?.titulo}
 							</h1>
 						)}
@@ -65,7 +65,7 @@ export default function Carusel({ data, translations }) {
 						{data?.cta?.url && (
 							<a
 								href={data?.cta?.url}
-								className="button button-white"
+								className="button button-white m-auto"
 								target={data?.cta?.target}
 							>
 								<span className="line line-white">

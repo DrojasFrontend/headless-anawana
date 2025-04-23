@@ -7,6 +7,7 @@ import Header from "../components/Layout/Header/Header";
 import Hero from "../components/UI/Hero/Hero";
 import Forms from "../components/Forms/Forms";
 import Footer from "../components/Layout/Footer/Footer";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 
 export default function Component(props) {
 	const { translations } = useTranslation("contacto");
@@ -24,6 +25,7 @@ export default function Component(props) {
 	const mostrarHero = data?.page?.paginaContacto?.mostrarHero;
 	const grupoHero = data?.page?.paginaContacto?.grupoHero;
 	const tituloContacto = data?.page?.paginaContacto?.grupoFormulario?.titulo;
+	const imagenContacto = data?.page?.paginaContacto?.grupoFormulario?.imagen;
 	const grupoConfiguracionTemaRedes =
 	data?.themeGeneralSettings?.configuracionTema?.grupoSocial.redes;
 	const grupoConfiguracionTemaContactos =
@@ -31,6 +33,7 @@ export default function Component(props) {
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes =
 		data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+	const menuMobile = data?.themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	return (
 		<div>
@@ -38,11 +41,11 @@ export default function Component(props) {
 			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
 			<Forms
 				titulo={tituloContacto}
-				redes={grupoConfiguracionTemaRedes}
-				contactos={grupoConfiguracionTemaContactos}
+				imagen={imagenContacto}
 				translations={translations}
 			/>
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
 	);
 }
@@ -112,6 +115,18 @@ Component.query = gql`
 							mediaItemUrl
 						}
 					}
+					grupoMenuMobile {
+						menu {
+							icono {
+								mediaItemUrl
+							}
+							cta {
+								target
+								title
+								url
+							}
+						}
+					}
 				}
 			}
 		}
@@ -131,6 +146,9 @@ Component.query = gql`
 				}
 				grupoFormulario {
 					titulo
+					imagen {
+						mediaItemUrl
+					}
 				}
 			}
 		}

@@ -12,6 +12,7 @@ import TextGridThreeImages from "../components/UI/TextGridThreeImages/TextGridTh
 import Footer from "../components/Layout/Footer/Footer";
 import Loading from "../components/UI/Loading/Loading";
 import Image from "next/image";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 // Fragmentos para mejor organización
 const HEADER_FOOTER_FRAGMENT = gql`
 	fragment HeaderFooterFields on ThemeGeneralSettings {
@@ -61,6 +62,18 @@ const THEME_SETTINGS_QUERY = gql`
 						}
 						icono {
 							mediaItemUrl
+						}
+					}
+				}
+				grupoMenuMobile {
+        			menu {
+          				icono {
+            				mediaItemUrl
+          				}
+						cta {
+							target
+							title
+							url
 						}
 					}
 				}
@@ -169,6 +182,9 @@ const PAGE_QUERY = gql`
 								width
 							}
 						}
+						cta {
+							url
+						}
 					}
 				}
 			}
@@ -236,12 +252,13 @@ export default function Component(props) {
 	const logo = themeData?.themeGeneralSettings?.headerFooter?.grupoHeader;
 	const redes = themeData?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redesBlanco;
 	const grupoFooter = themeData?.themeGeneralSettings?.headerFooter?.grupoFooter;
+	const menuMobile = themeData?.themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	// Propiedades con fallback para evitar errores mientras cargan
 	const propiedades = propertiesData?.propiedades?.nodes || [];
-	
+
 	// Obtener todas las categorías únicas solo si los datos están disponibles
-	const allCategories = propiedadesReady 
+	const allCategories = propiedadesReady
 		? propiedades.reduce((cats, propiedad) => {
 			propiedad.categoriasDePropiedades.nodes.forEach(cat => {
 				if (!cats.some(existingCat => existingCat.id === cat.id)) {
@@ -272,31 +289,32 @@ export default function Component(props) {
 	return (
 		<div>
 			<Header data={menuData} logo={logo} translations={translations} />
-			
+
 			{!contentReady && <Loading minHeight="50vh" />}
-			
+
 			{mostrarCarusel && (
 				<Carusel data={dataSlide} translations={translations} />
 			)}
-			
+
 			{mostrarGaleria && <CardsCarusel data={dataGaleria} translations={translations} />}
-			
+
 			{!propiedadesReady ? (
 				<Loading minHeight="30vh" />
 			) : (
-				<Propiedades 
-					data={propiedadesFiltradas} 
-					allCategories={allCategories} 
-					activeTab={activeTab} 
-					setActiveTab={setActiveTab} 
-					translations={translations} 
+				<Propiedades
+					data={propiedadesFiltradas}
+					allCategories={allCategories}
+					activeTab={activeTab}
+					setActiveTab={setActiveTab}
+					translations={translations}
 				/>
 			)}
-			
+
 			{mostrarGaleriaGrande && <BannerCarusel data={dataGaleriaGrande} translations={translations} />}
 			{mostrarTextoImagenes && <TextGridThreeImages data={dataTextoImagenes} translations={translations} />}
-			
+
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
 	);
 }

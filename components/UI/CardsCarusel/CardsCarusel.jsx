@@ -18,9 +18,9 @@ export default function CardsCarusel({ data, translations }) {
 		<section className="section sectionCardsCarusel bg-white-100 py-4 py-lg-5">
 			<div className="container-fluit px-1">
 				<div className="row">
-					<div className="col-lg-9 m-auto text-center mb-3">
+					<div className="col-12 col-lg-9 m-auto text-center mb-3">
 						{data?.titulo && (
-							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
+							<h2 className="font-base fs-2 fw-light mb-1">
 							{translations?.sectionCardsCaruselTitulo || data?.titulo}
 							</h2>
 						)}
@@ -69,7 +69,7 @@ export default function CardsCarusel({ data, translations }) {
 										objectFit="cover"
 									/>
 									<div className="position-absolute bottom-0 w-100 p-1 z-1">
-										<h3 className="fs-6 text-white text-start">{slide.titulo}</h3>
+										<h3 className="fs-4 text-white text-start text-uppercase">{slide.titulo}</h3>
 										<p className="fs-p text-white text-start">{slide.descripcion}</p>
 									</div>
 								</div>

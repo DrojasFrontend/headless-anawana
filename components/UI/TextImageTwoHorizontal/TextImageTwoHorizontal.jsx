@@ -11,7 +11,7 @@ export default function TextImageOne({ data, translations }) {
 				<div className="row">
 					<div className="col-lg-4 mb-3 mb-lg-0">
 						{data?.titulo && (
-							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
+							<h2 className="font-base fs-2 fw-light mb-1">
 								{translations.sectionTextImageTwoHorizontalTitulo || data?.titulo}
 							</h2>
 						)}

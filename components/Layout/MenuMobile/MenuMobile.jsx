@@ -27,7 +27,7 @@ export default function MenuMobile({ isOpen, data, logo, onClose }) {
         {data?.headerMenuItems.nodes?.map((menuItem, index) => (
           <li
             key={index}
-            className={`d-flex justify-content-lg-center align-content-center ${menuItem.cssClasses?.join(
+            className={`d-flex justify-content-lg-center align-content-center font-secondary ${menuItem.cssClasses?.join(
               " "
             )}`}
           >

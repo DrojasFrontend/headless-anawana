@@ -5,11 +5,10 @@ import * as MENUS from "../constants/menus";
 
 import Header from "../components/Layout/Header/Header";
 import Hero from "../components/UI/Hero/Hero";
-import TextImage from "../components/UI/TextImage/TextImage";
-import TextImageTwo from "../components/UI/TextImageTwo/TextImageTwo";
-import TextGridImages from "../components/UI/TextGridImages/TextGridImages";
-import TextImageTwoHorizontal from "../components/UI/TextImageTwoHorizontal/TextImageTwoHorizontal";
+import Items from "../components/UI/Items/Items";
+import ImagesTextsItems from "../components/UI/ImagesTextsItems/ImagesTextsItems";
 import Footer from "../components/Layout/Footer/Footer";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 
 export default function Component(props) {
 	const { translations } = useTranslation("nosotros");
@@ -26,29 +25,25 @@ export default function Component(props) {
 	const logo = data?.themeGeneralSettings?.headerFooter?.grupoHeader;
 
 	const mostrarHero = data?.page?.paginaNosotros?.mostrarHero;
-	const mostrarTextoImagen = data?.page?.paginaNosotros?.mostrarTextoImagen;
-	const mostrarTextoImagenes = data?.page?.paginaNosotros?.mostrarTextoImagenes;
-	const mostrarTextoGridImagenes = data?.page?.paginaNosotros?.mostrarTextoGridImagenes;
-	const mostrarTextoImagenesHorizontales = data?.page?.paginaNosotros?.mostrarTextoImagenesHorizontales;
+	const mostrarItems = data?.page?.paginaNosotros?.mostrarItems;
+	const mostrarImagenesTextosItems = data?.page?.paginaNosotros?.mostrarImagenesTextosItems;
 
 	const grupoHero = data?.page?.paginaNosotros?.grupoHero;
-	const grupoTextoImagen = data?.page?.paginaNosotros?.grupoTextoImagen;
-	const grupoTextoImagenes = data?.page?.paginaNosotros?.grupoTextoImagenes;
-	const grupoTextoGridImagenes = data?.page?.paginaNosotros?.grupoTextoGridImagenes;
-	const grupoTextoImagenesHorizontales = data?.page?.paginaNosotros?.grupoTextoImagenesHorizontales;
+	const grupoItems = data?.page?.paginaNosotros?.grupoItems;
+	const grupoImagenesTextosItems = data?.page?.paginaNosotros?.grupoImagenesTextosItems;
 
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+	const menuMobile = data?.themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	return (
 		<div>
 			<Header data={menuData} logo={logo} />
 			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
-			{mostrarTextoImagen && <TextImage data={grupoTextoImagen} translations={translations} />}
-			{mostrarTextoImagenes && <TextImageTwo data={grupoTextoImagenes} translations={translations} />}
-			{mostrarTextoGridImagenes && (<TextGridImages data={grupoTextoGridImagenes} translations={translations} />)}
-			{mostrarTextoImagenesHorizontales && (<TextImageTwoHorizontal data={grupoTextoImagenesHorizontales} translations={translations} />)}
+			{mostrarItems && <Items data={grupoItems} translations={translations} />}
+			{mostrarImagenesTextosItems && <ImagesTextsItems data={grupoImagenesTextosItems} translations={translations} />}
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
 	);
 }
@@ -107,15 +102,25 @@ Component.query = gql`
 						}
 					}
 				}
+				grupoMenuMobile {
+					menu {
+						icono {
+							mediaItemUrl
+						}
+						cta {
+							target
+							title
+							url
+						}
+					}
+				}
 			}
 		}
 		page(id: $id, idType: DATABASE_ID) {
 			paginaNosotros {
 				mostrarHero
-				mostrarTextoImagen
-				mostrarTextoImagenes
-				mostrarTextoGridImagenes
-				mostrarTextoImagenesHorizontales
+				mostrarItems
+				mostrarImagenesTextosItems
 				grupoHero {
 					titulo
 					imagen {
@@ -127,80 +132,35 @@ Component.query = gql`
 						}
 					}
 				}
-				grupoTextoImagen {
-					titulo
-					descripcion
-					cta {
-						target
-						title
-						url
+				grupoItems {
+					items {
+						icono {
+							mediaItemUrl
+						}
+						titulo
+						detalle
 					}
-					imagen {
+				}
+				grupoImagenesTextosItems {
+					tituloPrincipal
+					descripcionPrincipal
+					imagen1 {
 						altText
 						mediaItemUrl
-						mediaDetails {
-							height
-							width
-						}
 					}
-				}
-				grupoTextoImagenes {
+					imagen2 {
+						altText
+						mediaItemUrl
+					}
 					titulo
+					subtitulo
 					descripcion
-					cta {
-						target
-						title
-						url
-					}
-					imagenes {
-						imagen {
-							altText
-							mediaItemUrl
-							mediaDetails {
-								height
-								width
-							}
-						}
+					items {
+						titulo
+						detalle
 					}
 				}
-				grupoTextoGridImagenes {
-					titulo
-					descripcion
-					cta {
-						target
-						title
-						url
-					}
-					imagenes {
-						imagen {
-							altText
-							mediaItemUrl
-							mediaDetails {
-								height
-								width
-							}
-						}
-					}
-				}
-				grupoTextoImagenesHorizontales {
-					titulo
-					descripcion
-					cta {
-						target
-						title
-						url
-					}
-					imagenes {
-						imagen {
-							altText
-							mediaItemUrl
-							mediaDetails {
-								height
-								width
-							}
-						}
-					}
-				}
+				
 			}
 		}
 	}

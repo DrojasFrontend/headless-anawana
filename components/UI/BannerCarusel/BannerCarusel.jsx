@@ -11,104 +11,86 @@ import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import slidePrevNext from "/public/icons/icon-next-slide.svg";
-import slideIcon1 from "/public/icons/icon-img-1.png";
-import slideIcon2 from "/public/icons/icon-img-2.png";
-import slideIcon3 from "/public/icons/icon-img-3.png";
-import slideIcon4 from "/public/icons/icon-img-4.png";
-
 export default function CardsCarusel({ data, translations }) {
 	return (
-		<section className="section sectionBannerCarusel bg-white pt-4 pt-lg-5">
-			<div className="container-fluit px-1">
+		<section className="pt-4 pt-lg-5 ">
+			<div className="container-fluid px-1">
 				<div className="row">
-					<div className="col-lg-9 m-auto text-center mb-3">
+					<div className="col-12 col-lg-6">
 						{data?.titulo && (
-							<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
+							<h2 className="font-base fs-2 fw-light mb-1">
 								{translations.sectionBannerCaruselTitulo || data?.titulo}
 							</h2>
 						)}
 						{data?.descripcion && (
-							<div className="col-lg-10 m-auto">
-								<p className="text-gray fs-p">
-									{translations.sectionBannerCaruselDescripcion || data?.descripcion}
-								</p>
-							</div>
+							<p className="text-gray fs-p">
+								{translations.sectionBannerCaruselDescripcion || data?.descripcion}
+							</p>
 						)}
-					</div>
-				</div>
-			</div>
-			<div className="pe-0 px-lg-4 pb-3">
-				<div className="container-fluit px-1 position-relative px-0 p-lg-1">
-					<Swiper
-						modules={[Autoplay, Navigation, Pagination, EffectFade]}
-						spaceBetween={10}
-						slidesPerView= {1.1}
-						autoplay={{
-							delay: 2500,
-							disableOnInteraction: false,
-						}}
-						speed={2000}
-						navigation={{
-							nextEl: ".swiper-button-next",
-							prevEl: ".swiper-button-prev",
-						}}
-						breakpoints={{
-							1024: {
-								slidesPerView: 1,
-							},
-						}}
-						pagination={false}
-						// onSlideChange={() => console.log('slide change')}
-						className="mySwiper"
-					>
-						{data?.slides?.map((slide, index) => (
-							<SwiperSlide key={index}>
-								<div className={cx(["slide", "d-flex position-relative"])}>
-									<Image
-										src={slide?.imagen?.mediaItemUrl}
-										alt={slide?.imagen?.altText}
-										width={slide?.imagen?.mediaDetails?.width}
-										height={slide?.imagen?.mediaDetails?.height}
-										objectFit="cover"
-									/>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
-					<div className="swiper-button-prev">
-						
-					</div>
-					<div className="swiper-button-next">
-						
-					</div>
-				</div>
-			</div>
+						<div className="row pt-2">
+							{data?.items?.map((item, index) => (
+								<div className="col-12 col-lg-6 mb-1" key={index}>
+									<div className={cx(["item", "shadow"])}>
+										<div className={cx(["icon","position-relative"])}>
+											<Image
+												src={item?.icono?.mediaItemUrl}
+												alt={item?.icono?.altText}
+												width={item?.icono?.mediaDetails?.width}
+												height={item?.icono?.mediaDetails?.height}
+											/>
+										</div>
+										<div className="py-1 pe-1">
+											{item?.titulo && (
+												<h3 className="font-secondary fs-medium text-gray text-left mb-1">
+													{item?.titulo}
+												</h3>
+											)}
+											{item?.detalle && (
+												<p className={cx(["text", "text-gray", "text-left"])}>{item?.detalle}</p>
+											)}
+										</div>
+									</div>
 
-			<div className={cx(["bg", "bg-primary py-lg-3 pt-3"])}>
-				<div className="container-fluit px-1">
-					<div className="row">
-						{data?.items?.map((item, index) => (
-							<div className="col-sm-6 col-lg-3 mb-3 mb-lg-0" key={index}>
-								<div className={cx(["icon", "position-relative"])}>
-									<Image
-										src={item?.icono?.mediaItemUrl}
-										alt={item?.icono?.altText}
-										width={item?.icono?.mediaDetails?.width}
-										height={item?.icono?.mediaDetails?.height}
-									/>
 								</div>
-
-								{item?.titulo && (
-									<h3 className="font-secondary text-white text-center my-1">
-										{item?.titulo}
-									</h3>
-								)}
-								{item?.detalle && (
-									<p className="text-white text-center">{item?.detalle}</p>
-								)}
-							</div>
-						))}
+							))}
+						</div>
+					</div>
+					<div className="col-12 col-lg-6">
+						<div className="d-flex justify-content-center align-items-center h-100">
+							<Swiper
+								modules={[Autoplay, Navigation, Pagination, EffectFade]}
+								spaceBetween={10}
+								slidesPerView={1.1}
+								autoplay={{
+									delay: 2500,
+									disableOnInteraction: false,
+								}}
+								speed={2000}
+								navigation={false}
+								breakpoints={{
+									1024: {
+										slidesPerView: 1,
+									},
+								}}
+								pagination={true}
+								// onSlideChange={() => console.log('slide change')}
+								className="mySwiper"
+							>
+								{data?.slides?.map((slide, index) => (
+									<SwiperSlide key={index}>
+										<div className={cx(["slide", "d-flex position-relative"])}>
+											<Image
+												src={slide?.imagen?.mediaItemUrl}
+												alt={slide?.imagen?.altText}
+												width={slide?.imagen?.mediaDetails?.width}
+												height={slide?.imagen?.mediaDetails?.height}
+												objectFit="cover"
+											/>
+										</div>
+									</SwiperSlide>
+								))}
+							</Swiper>
+						</div>
 					</div>
 				</div>
 			</div>

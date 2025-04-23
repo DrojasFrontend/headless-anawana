@@ -15,3 +15,5 @@ export { FeaturedPosts } from "./UI/FeaturedPosts";
 export { BlogCaruselTwoSlides } from "./UI/BlogCaruselTwoSlides";
 export { Propiedades } from "./UI/Propiedades";
 export { Forms } from "./UI/Forms";
+export { Items } from "./UI/Items";
+export { ImagesTextsItems } from "./UI/ImagesTextsItems";

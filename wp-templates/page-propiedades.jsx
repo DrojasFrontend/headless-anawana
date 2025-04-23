@@ -6,6 +6,7 @@ import * as MENUS from "../constants/menus";
 import Header from "../components/Layout/Header/Header";
 import Hero from "../components/UI/Hero/Hero";
 import Footer from "../components/Layout/Footer/Footer";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 
 export default function Component(props) {
 	const { translations } = useTranslation("propiedades");
@@ -29,12 +30,14 @@ export default function Component(props) {
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes =
 		data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+	const menuMobile = data?.themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	return (
 		<div>
 			<Header data={menuData} logo={logo} />
 			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
 	);
 }
@@ -102,6 +105,18 @@ Component.query = gql`
 						}
 						icono {
 							mediaItemUrl
+						}
+					}
+				}
+				grupoMenuMobile {
+					menu {
+						icono {
+							mediaItemUrl
+						}
+						cta {
+							target
+							title
+							url
 						}
 					}
 				}

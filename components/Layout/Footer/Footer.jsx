@@ -43,14 +43,14 @@ export default function Footer({ data, logo, redes }) {
 											: "col-xl-4 mb-3 mb-xl-0"
 									}`}
 								>
-									<h3 className="fs-6 text-white mb-1">{menu.tituloMenu}</h3>
+									<h3 className="font-secondary fs-p text-white mb-1 text-uppercase">{menu.tituloMenu}</h3>
 									{Array.isArray(menu?.items) &&
 										menu.items.map(
 											(item, index) =>
 												item?.cta?.url && (
 													<Link href={item.cta.url} key={index}>
 														<a
-															className="d-block text-white"
+															className="d-block text-white font-secondary"
 															target={item.cta.target || "_self"}
 														>
 															{item.cta.title || "Enlace"}

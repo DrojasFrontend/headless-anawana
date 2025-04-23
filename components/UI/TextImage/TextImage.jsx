@@ -14,7 +14,7 @@ export default function TextImageTwo({ data, translations }) {
 					<div className="col-lg-6 mb-3 mb-lg-0">
 						<div className="d-flex flex-column justify-content-center h-100 pe-lg-5">
 							{data?.titulo && (
-								<h2 className="font-secondary fs-2 text-uppercase fw-light mb-1">
+								<h2 className="font-base fs-2 fw-light mb-1">
 									{translations.sectionTextImageTitulo || data?.titulo}
 								</h2>
 							)}

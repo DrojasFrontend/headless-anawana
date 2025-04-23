@@ -9,6 +9,7 @@ import BlogCaruselTwoSlides from "../components/UI/BlogCaruselTwoSlides/BlogCaru
 import FeaturedPosts from "../components/UI/FeaturedPosts/FeaturedPosts";
 import Footer from "../components/Layout/Footer/Footer";
 import Loading from "../components/UI/Loading/Loading";
+import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
 
 export default function Component() {
 	const { translations } = useTranslation("blog");
@@ -29,8 +30,8 @@ export default function Component() {
 	// Verificar cada consulta por separado para carga progresiva
 	const headerReady = menuData && data;
 	const firstCarouselReady = firstTwo;
-	const secondCarouselReady = nextFive && data?.page?.paginaBlog;
-	const featuredPostsReady = random;
+	const secondCarouselReady = random && data?.page?.paginaBlog;
+	const featuredPostsReady = nextFive;
 
 	// Si no hay datos del header todavía, mostrar un spinner mínimo
 	if (!headerReady) {
@@ -42,6 +43,7 @@ export default function Component() {
 	const grupoCarusel = data?.page?.paginaBlog?.grupoCarusel;
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
 	const redes = data?.themeGeneralSettings?.configuracionTema?.grupoSocial?.redes;
+	const menuMobile = data?.themeGeneralSettings?.configuracionTema?.grupoMenuMobile?.menu;
 
 	// Preparar datos aleatorizados solo si están disponibles
 	const randomizedData = random
@@ -66,16 +68,17 @@ export default function Component() {
 			{mostrarCarusel && !secondCarouselReady ? (
 				<Loading minHeight="40vh" />
 			) : mostrarCarusel && (
-				<BlogCaruselTwoSlides data={nextFive} grupoCarusel={grupoCarusel} translations={translations} />
+				<BlogCaruselTwoSlides data={randomizedData} grupoCarusel={grupoCarusel} translations={translations} />
 			)}
 			
 			{!featuredPostsReady ? (
 				<Loading minHeight="30vh" />
 			) : (
-				<FeaturedPosts data={randomizedData} translations={translations} />
+				<FeaturedPosts data={nextFive} translations={translations} />
 			)}
 			
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
+			<MobileMenuBottom menuItems={menuMobile} />
 		</>
 	);
 }
@@ -103,7 +106,7 @@ const GET_FIRST_POSTS = gql`
 
 const GET_NEXT_POSTS = gql`
 	query GetNextPosts {
-		posts(first: 5, after: "2") {
+		posts(first: 20, after: "2") {
 			nodes {
 				id
 				title
@@ -194,6 +197,18 @@ Component.query = gql`
 						}
 						icono {
 							mediaItemUrl
+						}
+					}
+				}
+				grupoMenuMobile {
+					menu {
+						icono {
+							mediaItemUrl
+						}
+						cta {
+							target
+							title
+							url
 						}
 					}
 				}

@@ -2,11 +2,7 @@
 @import "styles/mixin";
 
 .bg {
-  height: rem(450);
-
-  @media only screen and (min-width: 1024px) {
-    height: rem(600);
-  }
+  height: 100vh
 }
 
 .content {

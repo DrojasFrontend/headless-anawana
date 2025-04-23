@@ -1,0 +1,29 @@
+@import "styles/breakpoints";
+@import "styles/mixin";
+
+.list {
+    li {
+        border-bottom: 1px solid #5d5d5d;
+        letter-spacing: rem(5px);
+
+        @media only screen and (min-width: 1280px) {
+            letter-spacing: rem(10px);
+        }
+    }
+}
+
+.text {
+    padding-top: rem(20px);
+
+    @media only screen and (min-width: 1200px) {
+        padding-top: rem(120px);
+    }
+
+    @media only screen and (min-width: 1280px) {
+        padding-top: rem(120px);
+    }
+
+    @media only screen and (min-width: 1366px) {
+        padding-top: rem(100px);
+    }
+}

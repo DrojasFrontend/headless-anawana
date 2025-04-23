@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const ContactForm = ({ titulo, redes, contactos, translations }) => {
+const ContactForm = ({ titulo, imagen, redes, contactos, translations }) => {
 	const [formData, setFormData] = useState({
 		nombre: "",
 		email: "",
@@ -66,35 +66,35 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 						<h2 className="fs-3">{translations.sectionFormTitulo || titulo}</h2>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-lg-8 mb-3 mb-lg-0">
+				<div className="row flex-column-reverse flex-lg-row">
+					<div className="col-lg-7 mb-3 mb-lg-0 pe-lg-10">
 						<form onSubmit={handleSubmit}>
 							<div className="row">
-								<div className="col-lg-6 mb-1">
+								<div className="col-lg-12 mb-1">
 									<label htmlFor="nombre" className="form-label sr-only">
-										Nombre
+										Full Name
 									</label>
 									<input
 										type="text"
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="nombre"
 										name="nombre"
-										placeholder="Nombre"
+										placeholder="Full Name"
 										value={formData.nombre}
 										onChange={handleChange}
 										required
 									/>
 								</div>
-								<div className="col-lg-6 mb-1">
+								<div className="col-lg-12 mb-1">
 									<label htmlFor="email" className="form-label sr-only">
 										Email
 									</label>
 									<input
 										type="email"
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="email"
 										name="email"
-										placeholder="Email"
+										placeholder="E-mail"
 										value={formData.email}
 										onChange={handleChange}
 										required
@@ -106,10 +106,10 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 									</label>
 									<input
 										type="text"
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="ocupacion"
 										name="ocupacion"
-										placeholder="Ocupacion"
+										placeholder="Occupation"
 										value={formData.ocupacion}
 										onChange={handleChange}
 									/>
@@ -120,10 +120,10 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 									</label>
 									<input
 										type="tel"
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="telefono"
 										name="telefono"
-										placeholder="Telefono"
+										placeholder="Phone"
 										value={formData.telefono}
 										onChange={handleChange}
 									/>
@@ -134,10 +134,10 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 									</label>
 									<input
 										type="text"
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="servicios"
 										name="servicios"
-										placeholder="Servicios"
+										placeholder="Services"
 										value={formData.servicios}
 										onChange={handleChange}
 									/>
@@ -147,10 +147,10 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 										Escribir mensaje.....
 									</label>
 									<textarea
-										className="form-control py-1"
+										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="mensaje"
 										name="mensaje"
-										placeholder="Escribir mensaje....."
+										placeholder="Message"
 										value={formData.mensaje}
 										onChange={handleChange}
 										required
@@ -160,17 +160,17 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 							<div className="mt-1">
 								<button
 									type="submit"
-									className="btn btn-primary"
+									className="btn btn-primary w-100 rounded-0 py-1 font-secondary text-uppercase"
 									disabled={isSubmitting}
 								>
-									{isSubmitting ? "Enviando..." : "Enviar"}
+									{isSubmitting ? "Sending..." : "Contact"}
 								</button>
 								{message && <p className="mt-3">{message}</p>}
 							</div>
 						</form>
 					</div>
-					<div className="col-lg-4">
-						<div className="col-12 bg-gray-200 px-1 py-2 p-xl-3 rounded-5 shadow">
+					<div className="col-lg-5">
+						{/* <div className="col-12 bg-gray-200 px-1 py-2 p-xl-3 rounded-5 shadow">
 							{contactos?.map((contacto, index) => (
 								<Link href={contacto?.cta?.url} key={index}>
 									<a className="d-flex w-f align-items-center mb-2">
@@ -201,6 +201,15 @@ const ContactForm = ({ titulo, redes, contactos, translations }) => {
 									</Link>
 								))}
 							</div>
+						</div> */}
+						<div className="d-flex justify-content-center mb-lg-0 mb-1">
+							<Image
+								src={imagen?.mediaItemUrl}
+								alt={imagen?.altText}
+								width={432}
+								height={432}
+								className="object-fit-cover"
+							/>
 						</div>
 					</div>
 				</div>
