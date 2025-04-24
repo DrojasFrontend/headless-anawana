@@ -53,7 +53,7 @@ export default function Propiedades({ data, allCategories, activeTab, setActiveT
                         {/* Panel de categorías */}
                         <div className="col-12 col-lg-4 mb-lg-0 mb-2">
                             <div className="bg-white rounded-lg shadow-md p-lg-4 ps-0">
-                                <h2 className="font-base fs-2 fw-light mb-1">Propiedades</h2>
+                                <h2 className="font-base fs-2 fw-light mb-1">Properties</h2>
                                 <div className="flex flex-col gap-2">
                                     <button
                                         onClick={() => setActiveTab('all')}
@@ -62,7 +62,7 @@ export default function Propiedades({ data, allCategories, activeTab, setActiveT
                                             : ''
                                             }`}
                                     >
-                                        Todas las propiedades
+                                        All properties
                                     </button>
                                     {allCategories.map((categoria) => (
                                         <button

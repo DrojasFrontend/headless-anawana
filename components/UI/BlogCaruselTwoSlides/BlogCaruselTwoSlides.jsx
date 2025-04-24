@@ -57,7 +57,7 @@ export default function BlogCarusel({ data, grupoCarusel, translations }) {
 								delay: 2500,
 								disableOnInteraction: false,
 							}}
-							speed={2000}
+							speed={200000000}
 							navigation={{
 								nextEl: ".swiper-button-next",
 								prevEl: ".swiper-button-prev",
@@ -67,8 +67,8 @@ export default function BlogCarusel({ data, grupoCarusel, translations }) {
 						>
 							{data?.posts?.nodes?.map((post, index) => (
 								<SwiperSlide key={index}>
-									<div className={cx(["slide", "position-relative text-center"])}>
-										<a href={`/${post.slug}`}>
+									<div className={cx(["slide", "position-relative text-center d-flex"])}>
+										<a href={`/${post.slug}`} className={cx("slide", "d-flex")}>
 											<Image
 												src={post?.featuredImage?.node?.sourceUrl}
 												alt={post?.title}
@@ -76,6 +76,9 @@ export default function BlogCarusel({ data, grupoCarusel, translations }) {
 												height={600}
 												objectFit="cover"
 											/>
+											<div className="position-absolute bottom-0 left-0 h-100 w-100 p-1 z-1 d-flex align-items-end z-2">
+												<p className="fs-p text-white text-start">{post.title}</p>
+											</div>
 										</a>
 									</div>
 								</SwiperSlide>

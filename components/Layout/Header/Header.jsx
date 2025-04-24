@@ -137,10 +137,13 @@ export default function Header({ data, logo, className }) {
 								<LanguageSwitcher />
 							</div>
 							<button
-								className="d-xl-none m-auto me-0 d-flex justify-content-end align-items-center h-100 border-0 bg-transparent"
+								className="d-xl-none m-auto me-0 d-flex justify-content-end align-items-center h-100 border-0 bg-transparent gap-1"
 								onClick={() => setIsOpen(!isOpen)}
 							>
-								<IconMenu />
+								<div className="d-flex flex-row gap-1">
+									<IconMenu />
+									<span className="font-secondary text-white fs-p scroll-menu">Menu</span>
+								</div>
 							</button>
 						</div>
 					</nav>

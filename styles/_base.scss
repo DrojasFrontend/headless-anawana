@@ -144,6 +144,10 @@ a {
 				fill: #22376b;
 			}
 		}
+
+		.scroll-menu {
+			@extend .text-primary;
+		}
 	}
 
 	a {

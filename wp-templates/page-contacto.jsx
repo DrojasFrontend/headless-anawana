@@ -115,16 +115,16 @@ Component.query = gql`
 							mediaItemUrl
 						}
 					}
-					grupoMenuMobile {
-						menu {
-							icono {
-								mediaItemUrl
-							}
-							cta {
-								target
-								title
-								url
-							}
+				}
+				grupoMenuMobile {
+					menu {
+						icono {
+							mediaItemUrl
+						}
+						cta {
+							target
+							title
+							url
 						}
 					}
 				}
