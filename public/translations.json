@@ -10,7 +10,7 @@
     },
     "inicio": {
       "caruselTitulo": "Luxury Homes in Cartagena",
-      "caruselDescripcion": "Luxury living in Cartagena’s most prestigious homes.",
+      "caruselDescripcion": "Luxury living in Cartagena's most prestigious homes.",
       "sectionCardsCaruselTitulo": "Discover exclusive luxury rentals in Cartagena's best locations",
       "sectionCardsCaruselDescripcion": "Experience the best of Cartagena by staying in an exclusive private home. Our luxury rentals in Cartagena offer unmatched privacy, top-tier comfort, and prime locations near the Walled City, beaches, and vibrant districts. Whether for a short stay or a long retreat, find the perfect space for an unparalleled experience.",
       "sectionBannerCaruselTitulo": "Luxury home rentals in Islas del Rosario and Barú",
@@ -27,12 +27,21 @@
     },
     "contacto": {
       "sectionHeroTitulo": "Contact us to rent exclusive homes in Cartagena",
-      "sectionFormTitulo": "Do you have any questions or want to make a reservation?"
+      "sectionFormTitulo": "Do you have any questions or want to make a reservation?",
+      "fullName": "Full Name",
+      "email": "Email",
+      "occupation": "Occupation",
+      "phone": "Phone",
+      "services": "Services",
+      "message": "Message",
+      "contact": "Contact",
+      "sending": "Sending..."
     },
     "blog": {
       "sectionBlogCaruselTwoSlidesTitulo": "The best of Cartagena, Barú, and Islas del Rosario",
       "sectionBlogCaruselTwoSlidesDescripcion": "Explore history, culture, and hidden gems of Cartagena and its islands.",
-      "sectionFeaturedPostsTitulo": "Explore all articles"
+      "sectionFeaturedPostsTitulo": "Explore all articles",
+      "readArticle": "Read article"
     }
   },
   "es": {
@@ -63,12 +72,21 @@
     },
     "contacto": {
       "sectionHeroTitulo": "Contáctanos para alquilar casas exclusivas en Cartagena",
-      "sectionFormTitulo": "¿Tienes alguna pregunta o deseas hacer una reserva?"
+      "sectionFormTitulo": "¿Tienes alguna pregunta o deseas hacer una reserva?",
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico",
+      "occupation": "Ocupación",
+      "phone": "Teléfono",
+      "services": "Servicios",
+      "message": "Mensaje",
+      "contact": "Contactar",
+      "sending": "Enviando..."
     },
     "blog": {
       "sectionBlogCaruselTwoSlidesTitulo": "Lo mejor de Cartagena, Barú e Islas del Rosario",
       "sectionBlogCaruselTwoSlidesDescripcion": "Explora la historia, cultura y rincones únicos de Cartagena y sus islas.",
-      "sectionFeaturedPostsTitulo": "Explora todos los artículos"
+      "sectionFeaturedPostsTitulo": "Explora todos los artículos",
+      "readArticle": "Leer artículo"
     }
   }
 }

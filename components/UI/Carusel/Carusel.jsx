@@ -5,6 +5,7 @@ let cx = classNames.bind(styles);
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
+import ReservasIframeBuscador from "../ReservasIframe/ReservasIframeBuscador";
 
 // Importar estilos
 import "swiper/css";
@@ -47,22 +48,24 @@ export default function Carusel({ data, translations }) {
 				<div
 					className={cx([
 						"content",
-						"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-end py-3",
+						"position-absolute top-0 left-0 w-100 h-100 z-1 d-flex align-items-end",
 					])}
 				>
-					<div className="container-fluit px-1 m-auto text-center">
-						{data?.titulo && (
-							<h1 className="fs-1 text-white fw-light mb-lg-0 mb-1">
-								{translations?.caruselTitulo || data?.titulo}
-							</h1>
-						)}
+					<div className="w-100 h-100 px-1 m-auto text-center">
+						<div className="col-12 d-flex flex-column justify-content-end col-lg-8 m-auto h-100">
+							{data?.titulo && (
+								<h1 className="fs-1 text-white fw-light mb-lg-0 mb-1">
+									{translations?.caruselTitulo || data?.titulo}
+								</h1>
+							)}
 
-						{data?.descripcion && (
-							<p className={cx(["text", "text-white fs-medium fw-light mb-2"])}>
-								{translations?.caruselDescripcion || data?.descripcion}
-							</p>
-						)}
-						{data?.cta?.url && (
+							{data?.descripcion && (
+								<p className={cx(["text", "text-white fs-medium fw-light mb-2"])}>
+									{translations?.caruselDescripcion || data?.descripcion}
+								</p>
+							)}
+							<ReservasIframeBuscador className="mt-3" />
+							{/* {data?.cta?.url && (
 							<a
 								href={data?.cta?.url}
 								className="button button-white m-auto"
@@ -76,7 +79,8 @@ export default function Carusel({ data, translations }) {
 									<span className="line-white-left"></span>
 								</span>
 							</a>
-						)}
+						)} */}
+						</div>
 					</div>
 				</div>
 			</Swiper>

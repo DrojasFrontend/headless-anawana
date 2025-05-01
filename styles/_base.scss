@@ -658,14 +658,21 @@ p {
 	a {
 		@extend .position-relative;
 
+		&:hover {
+			&:before {
+				width: 100%;
+			}
+		}
+
 		&:before {
 			content: "";
 			display: block;
 			position: absolute;
 			bottom: rem(-2);
 			left: 0;
-			width: 100%;
+			width: 0;
 			height: 2px;
+			transition: width 0.3s ease;
 			background-color: var(--color-secondary);
 		}
 	}

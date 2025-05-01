@@ -72,14 +72,14 @@ const ContactForm = ({ titulo, imagen, redes, contactos, translations }) => {
 							<div className="row">
 								<div className="col-lg-12 mb-1">
 									<label htmlFor="nombre" className="form-label sr-only">
-										Full Name
+										{translations?.fullName || 'Full Name'}
 									</label>
 									<input
 										type="text"
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="nombre"
 										name="nombre"
-										placeholder="Full Name"
+										placeholder={translations?.fullName || 'Full Name'}
 										value={formData.nombre}
 										onChange={handleChange}
 										required
@@ -87,14 +87,14 @@ const ContactForm = ({ titulo, imagen, redes, contactos, translations }) => {
 								</div>
 								<div className="col-lg-12 mb-1">
 									<label htmlFor="email" className="form-label sr-only">
-										Email
+										{translations?.email || 'Email'}
 									</label>
 									<input
 										type="email"
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="email"
 										name="email"
-										placeholder="E-mail"
+										placeholder={translations?.email || 'E-mail'}
 										value={formData.email}
 										onChange={handleChange}
 										required
@@ -102,68 +102,68 @@ const ContactForm = ({ titulo, imagen, redes, contactos, translations }) => {
 								</div>
 								<div className="col-lg-6 mb-1">
 									<label htmlFor="ocupacion" className="form-label sr-only">
-										Ocupación
+										{translations?.occupation || 'Occupation'}
 									</label>
 									<input
 										type="text"
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="ocupacion"
 										name="ocupacion"
-										placeholder="Occupation"
+										placeholder={translations?.occupation || 'Occupation'}
 										value={formData.ocupacion}
 										onChange={handleChange}
 									/>
 								</div>
 								<div className="col-lg-6 mb-1">
 									<label htmlFor="telefono" className="form-label sr-only">
-										Teléfono
+										{translations?.phone || 'Phone'}
 									</label>
 									<input
 										type="tel"
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="telefono"
 										name="telefono"
-										placeholder="Phone"
+										placeholder={translations?.phone || 'Phone'}
 										value={formData.telefono}
 										onChange={handleChange}
 									/>
 								</div>
 								<div className="col-lg-12 mb-1">
 									<label htmlFor="servicios" className="form-label sr-only">
-										Servicios
+										{translations?.services || 'Services'}
 									</label>
 									<input
 										type="text"
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="servicios"
 										name="servicios"
-										placeholder="Services"
+										placeholder={translations?.services || 'Services'}
 										value={formData.servicios}
 										onChange={handleChange}
 									/>
 								</div>
 								<div className="col-lg-12">
 									<label htmlFor="mensaje" className="form-label sr-only">
-										Escribir mensaje.....
+										{translations?.message || 'Message'}
 									</label>
 									<textarea
 										className="form-control py-1 border-top-0 border-start-0 border-end-0 border-bottom-1 rounded-0 font-secondary text-uppercase fs-small px-0"
 										id="mensaje"
 										name="mensaje"
-										placeholder="Message"
+										placeholder={translations?.message || 'Message'}
 										value={formData.mensaje}
 										onChange={handleChange}
 										required
 									/>
 								</div>
 							</div>
-							<div className="mt-1">
+							<div className="mt-1 text-center">
 								<button
 									type="submit"
-									className="btn btn-primary w-100 rounded-0 py-1 font-secondary text-uppercase"
+									className="btn btn-primary rounded-0 py-1 px-3 font-secondary text-uppercase"
 									disabled={isSubmitting}
 								>
-									{isSubmitting ? "Sending..." : "Contact"}
+									{isSubmitting ? (translations?.sending || 'Sending...') : (translations?.contact || 'Contact')}
 								</button>
 								{message && <p className="mt-3">{message}</p>}
 							</div>

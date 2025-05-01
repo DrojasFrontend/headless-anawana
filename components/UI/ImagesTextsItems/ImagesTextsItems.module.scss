@@ -4,10 +4,9 @@
 .list {
     li {
         border-bottom: 1px solid #5d5d5d;
-        letter-spacing: rem(5px);
 
         @media only screen and (min-width: 1280px) {
-            letter-spacing: rem(10px);
+            letter-spacing: rem(2px);
         }
     }
 }

@@ -47,7 +47,7 @@ export default function FeaturedPosts({ data, translations }) {
 									/>
 									<div className="p-1">
 										<h3 className="fs-6 font-secondary mb-1">{post.title}</h3>
-										<span className="font-secondary fs-small">Leer articulo</span>
+										<span className="font-secondary fs-small">{translations?.readArticle || 'Leer articulo'}</span>
 									</div>
 								</a>
 							</Link>

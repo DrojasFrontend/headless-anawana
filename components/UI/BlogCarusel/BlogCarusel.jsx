@@ -64,7 +64,7 @@ export default function BlogCarusel({ data, translations }) {
 												className="button button-white m-auto"
 											>
 												<span className="line line-white">
-													Leer articulo
+													{translations?.readArticle || 'Read article'}
 													<span className="line-white-top"></span>
 													<span className="line-white-right"></span>
 													<span className="line-white-bottom"></span>

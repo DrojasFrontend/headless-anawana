@@ -7,6 +7,7 @@ import Header from "../components/Layout/Header/Header";
 import Hero from "../components/UI/Hero/Hero";
 import Footer from "../components/Layout/Footer/Footer";
 import MobileMenuBottom from "../components/Layout/MobileMenuBottom";
+import ReservasIframeListaPropiedades from "../components/UI/ReservasIframe/ReservasIframeListaPropiedades";
 
 export default function Component(props) {
 	const { translations } = useTranslation("propiedades");
@@ -24,7 +25,7 @@ export default function Component(props) {
 	const mostrarHero = data?.page?.paginaPropiedades?.mostrarHero;
 	const grupoHero = data?.page?.paginaPropiedades?.grupoHero;
 	const grupoConfiguracionTemaRedes =
-	data?.themeGeneralSettings?.configuracionTema?.grupoSocial.redes;
+		data?.themeGeneralSettings?.configuracionTema?.grupoSocial.redes;
 	const grupoConfiguracionTemaContactos =
 		data?.themeGeneralSettings?.configuracionTema?.grupoContacto?.contactos;
 	const grupoFooter = data?.themeGeneralSettings?.headerFooter?.grupoFooter;
@@ -34,8 +35,11 @@ export default function Component(props) {
 
 	return (
 		<div>
-			<Header data={menuData} logo={logo} />
+			<Header data={menuData} logo={logo} className="customHeaderBlue" />
 			{mostrarHero && <Hero data={grupoHero} translations={translations} />}
+			<div className="pt-lg-10 pt-5">
+				<ReservasIframeListaPropiedades />
+			</div>
 			<Footer logo={logo} data={grupoFooter} redes={redes} />
 			<MobileMenuBottom menuItems={menuMobile} />
 		</div>
